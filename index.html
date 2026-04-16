@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Complete Aura — Premium AI Concierge &amp; Creative Studio</title>
+<meta name="description" content="The Complete Aura is a premium AI concierge and creative studio based in India &amp; Malaysia. We select, build, and manage custom AI systems, automation, and creative design services.">
+<meta name="keywords" content="AI solutions Malaysia, AI solutions India, custom AI setup, business automation, chatbot development, AI concierge, wedding card design, invitation video, logo branding, The Complete Aura">
+<meta name="author" content="The Complete Aura">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.thecompleteaura.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.thecompleteaura.com/">
+<meta property="og:title" content="The Complete Aura — One AI to Rule Them All">
+<meta property="og:description" content="Premium AI concierge and creative studio based in India &amp; Malaysia.">
+<meta property="og:image" content="https://www.thecompleteaura.com/auraai.png">
+<meta property="og:site_name" content="The Complete Aura">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Complete Aura — One AI to Rule Them All">
+<meta name="twitter:description" content="Premium AI concierge and creative studio based in India &amp; Malaysia.">
+<meta name="twitter:image" content="https://www.thecompleteaura.com/auraai.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"The Complete Aura","description":"Premium AI concierge and creative studio based in India and Malaysia.","url":"https://www.thecompleteaura.com","logo":"https://www.thecompleteaura.com/auraai.png","contactPoint":{"@type":"ContactPoint","telephone":"+60104290595","contactType":"customer service"},"email":"thecompleteauraai@gmail.com","areaServed":["MY","IN"],"serviceType":["AI Consulting","Business Automation","Creative Design","Web Development"]}
+</script>
+<link rel="icon" type="image/png" href="auraai.png">
+<link rel="apple-touch-icon" href="auraai.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ═══ RESET ═══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+/* ═══ TOKENS ═══ */
+:root{
+  --indigo:#6366F1; --indigo-l:#818CF8; --indigo-d:#4338CA;
+  --violet:#8B5CF6; --violet-l:#A78BFA;
+  --v-glow:rgba(139,92,246,.35); --i-glow:rgba(99,102,241,.28);
+  --cyan:#22D3EE;
+  --bg:#07071A; --bg2:#0B0B22; --bg3:#0E0E28; --bg4:#11112E;
+  --surf:rgba(99,102,241,.07); --surf2:rgba(255,255,255,.04);
+  --bdr:rgba(99,102,241,.2); --bdr-s:rgba(255,255,255,.07); --bdr-v:rgba(139,92,246,.32);
+  --text:#EEF0FF; --text-d:rgba(238,240,255,.62); --text-m:rgba(238,240,255,.35);
+}
+
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.032'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.45;}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:16px 52px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(7,7,26,.97),transparent);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:all .4s;}
+nav.scrolled{background:rgba(7,7,26,.96);border-color:var(--bdr);}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;letter-spacing:.02em;}
+.nav-logo img{width:48px;height:48px;object-fit:contain;filter:drop-shadow(0 0 14px var(--v-glow));transition:filter .3s;}
+.nav-logo:hover img{filter:drop-shadow(0 0 26px var(--v-glow));}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--text-d);text-decoration:none;transition:color .3s;}
+.nav-links a:hover{color:var(--indigo-l);}
+.nav-cta{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:10px 26px;border-radius:6px;background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;text-decoration:none;transition:all .3s;box-shadow:0 0 20px var(--i-glow);white-space:nowrap;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 40px var(--v-glow);}
+
+/* ═══ HERO ═══ */
+#hero{min-height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:150px 24px 100px;overflow:hidden;}
+#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.05) 1px,transparent 1px);background-size:64px 64px;animation:gdrift 24s linear infinite;}
+#hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,transparent 40%,var(--bg) 100%);pointer-events:none;}
+@keyframes gdrift{to{background-position:64px 64px;}}
+.orb{position:absolute;border-radius:50%;filter:blur(88px);pointer-events:none;}
+.o1{width:700px;height:700px;background:radial-gradient(circle,rgba(99,102,241,.18),transparent 65%);top:-200px;left:-200px;animation:odrift 14s ease-in-out infinite;}
+.o2{width:600px;height:600px;background:radial-gradient(circle,rgba(139,92,246,.14),transparent 65%);bottom:-150px;right:-150px;animation:odrift 18s ease-in-out infinite reverse;}
+.o3{width:400px;height:400px;background:radial-gradient(circle,rgba(34,211,238,.07),transparent 65%);top:40%;left:55%;animation:opulse 8s ease-in-out infinite;}
+@keyframes odrift{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,25px);}}
+@keyframes opulse{0%,100%{opacity:.5;transform:scale(1);}50%{opacity:1;transform:scale(1.15);}}
+
+.hero-content{position:relative;z-index:2;max-width:860px;width:100%;}
+/* BIGGER LOGO */
+.hero-logo{width:220px;height:220px;object-fit:contain;margin:0 auto 40px;display:block;filter:drop-shadow(0 0 40px rgba(139,92,246,.7)) drop-shadow(0 0 90px rgba(99,102,241,.4));animation:lbreathe 4s ease-in-out infinite,fup 1s ease both;}
+@keyframes lbreathe{0%,100%{filter:drop-shadow(0 0 32px rgba(139,92,246,.6)) drop-shadow(0 0 80px rgba(99,102,241,.32));}50%{filter:drop-shadow(0 0 56px rgba(139,92,246,.95)) drop-shadow(0 0 120px rgba(99,102,241,.55));}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 20px;border-radius:100px;border:1px solid var(--bdr-v);background:rgba(139,92,246,.1);font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--violet-l);margin-bottom:28px;animation:fup .8s .05s ease both;}
+.bdot{width:6px;height:6px;background:var(--violet);border-radius:50%;animation:pdot 2s ease-in-out infinite;}
+@keyframes pdot{0%,100%{opacity:1;}50%{opacity:.2;}}
+.hero-h1{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(36px,5.5vw,68px);line-height:1.08;letter-spacing:-.02em;margin-bottom:22px;animation:fup .8s .12s ease both;}
+.hl{background:linear-gradient(135deg,var(--indigo-l),var(--violet-l),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-tag{font-family:'Rajdhani',sans-serif;font-size:clamp(16px,2.2vw,21px);font-weight:500;letter-spacing:.02em;color:var(--text-d);margin-bottom:16px;animation:fup .8s .2s ease both;}
+.hero-tag .ac{color:var(--indigo-l);font-weight:700;}
+.hero-sup{font-size:16px;color:var(--text-m);max-width:500px;margin:0 auto 52px;animation:fup .8s .28s ease both;}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fup .8s .36s ease both;}
+@keyframes fup{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+
+/* ═══ BUTTONS ═══ */
+.btn-wa{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border-radius:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;text-decoration:none;transition:all .3s;box-shadow:0 0 28px rgba(37,211,102,.25);}
+.btn-wa:hover{transform:translateY(-3px);box-shadow:0 8px 50px rgba(37,211,102,.45);}
+.btn-email{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border-radius:8px;background:transparent;border:1px solid var(--bdr-v);color:var(--violet-l);font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;text-decoration:none;transition:all .3s;}
+.btn-email:hover{background:rgba(139,92,246,.1);box-shadow:0 0 30px var(--v-glow);transform:translateY(-3px);}
+.btn-purple{display:inline-flex;align-items:center;gap:10px;padding:16px 44px;border-radius:8px;background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:all .3s;box-shadow:0 0 36px var(--i-glow);}
+.btn-purple:hover{transform:translateY(-3px);box-shadow:0 8px 56px var(--v-glow);}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:8px;background:transparent;border:1px solid var(--bdr-v);color:var(--violet-l);font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;text-decoration:none;transition:all .3s;}
+.btn-outline:hover{background:rgba(139,92,246,.1);transform:translateY(-2px);box-shadow:0 0 28px var(--v-glow);}
+
+/* ═══ VALUE STRIP ═══ */
+#strip{background:linear-gradient(135deg,rgba(99,102,241,.09),rgba(139,92,246,.06));border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:28px 48px;}
+.strip-in{max-width:1120px;margin:0 auto;display:flex;justify-content:space-around;align-items:center;gap:20px;flex-wrap:wrap;}
+.si{display:flex;align-items:center;gap:14px;}
+.si-box{width:44px;height:44px;border-radius:10px;background:rgba(99,102,241,.15);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.si-label{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;color:var(--text);}
+.si-sub{font-size:13px;color:var(--text-m);display:block;margin-top:2px;}
+.s-div{width:1px;height:44px;background:var(--bdr-s);}
+
+/* ═══ SHARED SECTION ═══ */
+section{padding:100px 24px;}
+.container{max-width:1120px;margin:0 auto;}
+.ltag{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--indigo-l);margin-bottom:14px;}
+.ltag::before{content:'— ';}
+.sec-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(30px,4vw,52px);line-height:1.1;letter-spacing:-.02em;margin-bottom:18px;}
+.sec-desc{font-size:17px;color:var(--text-d);max-width:540px;line-height:1.75;}
+
+/* ═══ ABOUT US ═══ */
+#about{background:var(--bg4);position:relative;overflow:hidden;}
+#about::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,.08),transparent 65%);pointer-events:none;border-radius:50%;}
+
+/* Text block */
+.about-text{text-align:center;}
+.about-text .ltag{display:block;}
+.about-text .sec-title{margin:0 auto 18px;}
+.about-body{font-size:16px;color:var(--text-d);line-height:1.85;max-width:680px;margin:0 auto;}
+.about-body+.about-body{margin-top:14px;}
+.about-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:32px;}
+.apill{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:8px 20px;border-radius:100px;background:rgba(99,102,241,.12);border:1px solid var(--bdr);color:var(--indigo-l);}
+
+/* Full-width video */
+.about-fullvid{width:100%;margin-top:52px;}
+.avid-badge-top{display:inline-flex;align-items:center;gap:8px;background:rgba(7,7,26,.88);border:1px solid var(--bdr-v);backdrop-filter:blur(12px);border-radius:100px;padding:8px 20px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--violet-l);margin-bottom:18px;}
+.avid-dot{width:7px;height:7px;background:#EF4444;border-radius:50%;display:inline-block;animation:pulse-red 1.8s ease-in-out infinite;flex-shrink:0;}
+@keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.5);}50%{box-shadow:0 0 0 6px rgba(239,68,68,0);}}
+.about-fullvid-inner{border-radius:18px;overflow:hidden;border:1px solid var(--bdr-v);box-shadow:0 0 80px rgba(139,92,246,.2),0 32px 80px rgba(0,0,0,.5);background:#000;}
+.about-fullvid-inner video{display:block;width:100%;height:auto;max-height:76vh;object-fit:contain;background:#000;}
+
+/* ═══ SERVICES ═══ */
+#services{background:var(--bg2);}
+.tog-wrap{display:inline-flex;border:1px solid var(--bdr);border-radius:10px;background:rgba(255,255,255,.02);overflow:hidden;margin-bottom:56px;}
+.tog{padding:13px 36px;background:transparent;border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--text-m);transition:all .3s;}
+.tog.active{background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;}
+.svc-card{background:var(--surf);border:1px solid var(--bdr-s);border-radius:14px;padding:32px 26px;position:relative;overflow:hidden;transition:all .4s;}
+.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(139,92,246,.06));opacity:0;transition:opacity .4s;}
+.svc-card:hover{border-color:var(--bdr);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.5);}
+.svc-card:hover::before{opacity:1;}
+.svc-icon{width:50px;height:50px;border-radius:12px;font-size:22px;display:flex;align-items:center;justify-content:center;background:rgba(99,102,241,.12);border:1px solid var(--bdr);margin-bottom:20px;position:relative;z-index:1;}
+.svc-card.cc .svc-icon{background:rgba(34,211,238,.08);border-color:rgba(34,211,238,.2);}
+.svc-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;margin-bottom:8px;position:relative;z-index:1;}
+.svc-desc{font-size:14px;color:var(--text-m);line-height:1.65;position:relative;z-index:1;}
+.svc-panel{display:none;}
+.svc-panel.active{display:block;}
+.psub{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-m);margin-bottom:36px;}
+
+/* ═══ PROJECTS ═══ */
+#projects{background:var(--bg3);}
+.proj-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:52px;}
+.pfilt{display:flex;gap:10px;flex-wrap:wrap;}
+.pf{padding:8px 22px;border-radius:100px;border:1px solid var(--bdr);background:transparent;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:var(--text-m);cursor:pointer;transition:all .3s;}
+.pf.active,.pf:hover{background:rgba(99,102,241,.15);border-color:var(--bdr);color:var(--indigo-l);}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:24px;}
+.proj-card{border-radius:14px;overflow:hidden;border:1px solid var(--bdr-s);background:var(--surf2);transition:all .4s;}
+.proj-card:hover{transform:translateY(-6px);border-color:var(--bdr);box-shadow:0 24px 60px rgba(0,0,0,.5);}
+.pvw{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#000;cursor:pointer;}
+.pvw video{width:100%;height:100%;object-fit:contain;display:block;background:#000;}
+.pov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,7,26,.5);transition:opacity .35s;pointer-events:none;}
+.proj-card:hover .pov{opacity:0;}
+.pplay{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),var(--violet));display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;box-shadow:0 0 28px var(--v-glow);pointer-events:auto;cursor:pointer;transition:transform .2s;}
+.pplay:hover{transform:scale(1.1);}
+.pinfo{padding:22px 24px;}
+.privacy-badge{display:inline-flex;align-items:center;gap:5px;font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-m);background:rgba(99,102,241,.1);border:1px solid var(--bdr);border-radius:100px;padding:3px 10px;margin-bottom:8px;}
+.ptag{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo-l);margin-bottom:8px;}
+.pname{font-family:'Outfit',sans-serif;font-weight:700;font-size:17px;margin-bottom:6px;}
+.pdesc{font-size:14px;color:var(--text-m);line-height:1.6;}
+
+/* ═══ HOW IT WORKS ═══ */
+#how{background:var(--bg);}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;}
+.step{background:var(--surf);border:1px solid var(--bdr-s);padding:48px 36px;position:relative;transition:all .4s;}
+.step:first-child{border-radius:14px 0 0 14px;}
+.step:last-child{border-radius:0 14px 14px 0;}
+.step:hover{background:rgba(99,102,241,.06);border-color:var(--bdr);}
+.snum{font-family:'Outfit',sans-serif;font-size:68px;font-weight:900;line-height:1;color:rgba(99,102,241,.12);margin-bottom:20px;transition:color .4s;}
+.step:hover .snum{color:rgba(139,92,246,.3);}
+.stitle{font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;margin-bottom:12px;}
+.sdesc{font-size:14px;color:var(--text-d);line-height:1.7;}
+.sarr{position:absolute;top:50%;right:-18px;transform:translateY(-50%);color:var(--indigo-l);font-size:22px;z-index:2;}
+.step:last-child .sarr{display:none;}
+
+/* ═══ TRUST ═══ */
+#trust{background:var(--bg2);}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.trust-body{font-size:16px;color:var(--text-d);line-height:1.8;margin-top:10px;}
+.trust-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+.trust-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--text-d);}
+.trust-list li::before{content:'◆';color:var(--indigo-l);font-size:10px;margin-top:5px;flex-shrink:0;}
+.gc{background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(139,92,246,.08));border:1px solid var(--bdr-v);border-radius:18px;padding:48px 40px;position:relative;overflow:hidden;}
+.gc::before{content:'💎';position:absolute;bottom:-20px;right:-10px;font-size:110px;opacity:.05;pointer-events:none;}
+.gbadge{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-l);display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+.gbadge::before{content:'';display:block;width:20px;height:1px;background:var(--violet);}
+.gtitle{font-family:'Outfit',sans-serif;font-weight:800;font-size:30px;line-height:1.2;margin-bottom:16px;}
+.gbody{font-size:15px;color:var(--text-d);line-height:1.8;margin-bottom:32px;}
+
+/* ═══ BRIEF ═══ */
+#brief{background:radial-gradient(ellipse 80% 50% at 50% 50%,rgba(99,102,241,.09),transparent 70%);text-align:center;}
+.brief-w{max-width:680px;margin:0 auto;}
+
+/* ═══ FOOTER ═══ */
+footer{background:#040410;border-top:1px solid var(--bdr);padding:64px 52px 40px;}
+.ft{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:64px;padding-bottom:48px;border-bottom:1px solid var(--bdr-s);}
+.flogo-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.flogo-img{width:52px;height:52px;object-fit:contain;border-radius:10px;filter:drop-shadow(0 0 10px var(--v-glow));}
+.fbrand{font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;}
+.ftagline{font-family:'Rajdhani',sans-serif;font-size:16px;color:var(--text-m);margin-bottom:14px;font-style:italic;}
+.fabout{font-size:14px;color:var(--text-m);line-height:1.75;max-width:300px;}
+.fcol-title{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-m);margin-bottom:22px;}
+.flinks{display:flex;flex-direction:column;gap:14px;}
+.flink{display:flex;align-items:center;gap:10px;color:var(--text-d);text-decoration:none;font-size:14px;transition:color .3s;}
+.flink:hover{color:var(--indigo-l);}
+.flink-ico{font-size:16px;flex-shrink:0;}
+.fbot{max-width:1120px;margin:28px auto 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-m);flex-wrap:wrap;gap:8px;}
+.fbot span:last-child{color:var(--indigo-l);}
+
+/* ═══ SOCIAL ICONS ═══ */
+.social-links{display:flex;gap:12px;margin-top:20px;}
+.social-btn{width:40px;height:40px;border-radius:10px;border:1px solid var(--bdr);background:var(--surf2);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s;flex-shrink:0;}
+.social-btn:hover{border-color:var(--bdr-v);background:rgba(99,102,241,.15);transform:translateY(-2px);box-shadow:0 0 20px var(--v-glow);}
+.social-btn svg{width:18px;height:18px;fill:var(--text-d);transition:fill .3s;}
+.social-btn.instagram:hover{border-color:rgba(225,48,108,.4);background:rgba(225,48,108,.1);box-shadow:0 0 20px rgba(225,48,108,.25);}
+.social-btn.instagram:hover svg{fill:#E1306C;}
+.social-btn.linkedin:hover{border-color:rgba(10,102,194,.4);background:rgba(10,102,194,.1);box-shadow:0 0 20px rgba(10,102,194,.3);}
+.social-btn.linkedin:hover svg{fill:#0A66C2;}
+.flink-social{display:flex;align-items:center;gap:10px;color:var(--text-d);text-decoration:none;font-size:14px;transition:color .3s;}
+.flink-social:hover{color:var(--violet-l);}
+.flink-social .sico{width:28px;height:28px;border-radius:7px;border:1px solid var(--bdr);background:var(--surf2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;}
+.flink-social:hover .sico{border-color:var(--bdr-v);background:rgba(99,102,241,.12);}
+.flink-social svg{width:14px;height:14px;fill:var(--text-d);transition:fill .3s;}
+.flink-social:hover svg{fill:var(--violet-l);}
+.flink-social.instagram:hover{color:#E1306C;}
+.flink-social.instagram:hover .sico{border-color:rgba(225,48,108,.4);background:rgba(225,48,108,.1);}
+.flink-social.instagram:hover svg{fill:#E1306C;}
+.flink-social.linkedin:hover{color:#0A66C2;}
+.flink-social.linkedin:hover .sico{border-color:rgba(10,102,194,.4);background:rgba(10,102,194,.1);}
+.flink-social.linkedin:hover svg{fill:#0A66C2;}
+
+/* ═══ FLOATING WA ═══ */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:400;display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.wa-pill{background:rgba(7,7,26,.92);border:1px solid rgba(37,211,102,.35);border-radius:100px;padding:8px 16px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:#4ADE80;backdrop-filter:blur(12px);white-space:nowrap;animation:pblink 3s ease-in-out infinite;}
+@keyframes pblink{0%,100%{opacity:1;}50%{opacity:.65;}}
+.wa-btn{width:58px;height:58px;border-radius:50%;text-decoration:none;background:linear-gradient(135deg,#25D366,#1a9e4c);display:flex;align-items:center;justify-content:center;font-size:27px;box-shadow:0 4px 28px rgba(37,211,102,.4);transition:all .3s;}
+.wa-btn:hover{transform:scale(1.12);box-shadow:0 8px 50px rgba(37,211,102,.6);}
+
+/* ═══ REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .proj-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));}
+}
+@media(max-width:900px){
+  .trust-grid{grid-template-columns:1fr;gap:40px;}
+  .steps{grid-template-columns:1fr;gap:0;}
+  .step{border-radius:0!important;}
+  .step:first-child{border-radius:14px 14px 0 0!important;}
+  .step:last-child{border-radius:0 0 14px 14px!important;}
+  .sarr{display:none;}
+  .ft{grid-template-columns:1fr 1fr;}
+  .ft>div:first-child{grid-column:span 2;}
+  .about-fullvid-inner video{max-height:56vw;}
+}
+@media(max-width:680px){
+  nav{padding:14px 20px;}
+  .nav-links,.nav-cta{display:none;}
+  section{padding:72px 20px;}
+  #strip{padding:20px;}
+  .s-div{display:none;}
+  .hero-logo{width:160px;height:160px;}
+  .ft{grid-template-columns:1fr;}
+  .ft>div:first-child{grid-column:span 1;}
+  footer{padding:48px 20px 32px;}
+  .wa-float{bottom:18px;right:14px;}
+  .proj-top{flex-direction:column;align-items:flex-start;}
+  .proj-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="auraai.png" alt="The Complete Aura logo">
+    The Complete Aura
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#how">Process</a></li>
+    <li><a href="#trust">Guarantee</a></li>
+  </ul>
+  <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20submit%20my%20requirements%20to%20The%20Complete%20Aura" target="_blank" class="nav-cta">Get a Custom Quote</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+  <div class="hero-content">
+    <img src="auraai.png" alt="The Complete Aura" class="hero-logo">
+    <div class="hero-badge"><span class="bdot"></span>Premium AI &amp; Creative Studio — Malaysia &amp; India</div>
+    <h1 class="hero-h1">Don't know which<br><span class="hl">AI to choose</span><br>for your business?</h1>
+    <p class="hero-tag"><span class="ac">One AI to rule them all.</span> We select, customize, and deploy<br>the perfect AI stack — so you don't have to.</p>
+    <p class="hero-sup">Tired of not knowing which premium AI to buy for your project? Let us handle the hassle.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20submit%20my%20requirements%20to%20The%20Complete%20Aura" target="_blank" class="btn-wa"><span>💬</span> Start on WhatsApp</a>
+      <a href="mailto:thecompleteauraai@gmail.com?subject=Business%20Requirements%20Brief" class="btn-email"><span>✉️</span> Email Requirements</a>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE STRIP -->
+<div id="strip">
+  <div class="strip-in">
+    <div class="si"><div class="si-box">⚡</div><div><div class="si-label">Fast Turnaround</div><span class="si-sub">Delivered before you expect it</span></div></div>
+    <div class="s-div"></div>
+    <div class="si"><div class="si-box">🔒</div><div><div class="si-label">Enterprise-Grade Privacy</div><span class="si-sub">Your data, always protected</span></div></div>
+    <div class="s-div"></div>
+    <div class="si"><div class="si-box">💎</div><div><div class="si-label">Best Value Guaranteed</div><span class="si-sub">Premium quality at the most competitive price</span></div></div>
+  </div>
+</div>
+
+
+<!-- ABOUT US -->
+<section id="about">
+  <div class="container">
+
+    <div class="about-text reveal">
+      <span class="ltag">About Us</span>
+      <h2 class="sec-title">We are <span class="hl">The Complete Aura</span></h2>
+      <p class="about-body">We're a premium AI concierge and creative studio based in <strong style="color:var(--violet-l);">India &amp; Malaysia</strong>. We bridge the gap between cutting-edge AI technology and real business results — so you never have to figure it out alone.</p>
+      <p class="about-body about-body+.about-body" style="margin-top:14px;">Whether you need an intelligent automation system, a custom AI stack, or stunning creative design work — we handle everything end-to-end, with precision and care.</p>
+      <div class="about-pills">
+        <span class="apill">🧠 AI Strategy</span>
+        <span class="apill">⚙️ Full Automation</span>
+        <span class="apill">🎨 Creative Design</span>
+        <span class="apill">🚀 Done For You</span>
+      </div>
+    </div>
+
+    <div class="about-fullvid reveal d1">
+      <div class="avid-badge-top">
+        <span class="avid-dot"></span>&nbsp;Our Story — Watch the Video
+      </div>
+      <div class="about-fullvid-inner">
+        <video
+          id="about-main-video"
+          controls
+          preload="auto"
+          playsinline
+        >
+          <source src="saving_time_video.mp4" type="video/mp4; codecs=avc1.42E01E,mp4a.40.2">
+          <source src="saving_time_video.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="reveal">
+      <span class="ltag">What We Do</span>
+      <h2 class="sec-title">Everything your business needs to <span class="hl">thrive</span></h2>
+    </div>
+
+    <div class="reveal d1">
+      <div class="tog-wrap">
+        <button class="tog active" onclick="switchPanel('business',this)">⚙️&nbsp; Business &amp; AI Solutions</button>
+        <button class="tog" onclick="switchPanel('creative',this)">🎨&nbsp; Creative Design Services</button>
+      </div>
+    </div>
+    <div class="svc-panel active" id="panel-business">
+      <p class="psub">AI &amp; Automation Systems</p>
+      <div class="svc-grid">
+        <div class="svc-card reveal"><div class="svc-icon">🌐</div><div class="svc-name">AI Website Development</div><div class="svc-desc">Intelligent, conversion-optimized websites powered by the latest AI frameworks — built to grow with you.</div></div>
+        <div class="svc-card reveal d1"><div class="svc-icon">⚙️</div><div class="svc-name">Automation Systems</div><div class="svc-desc">CRM automation, email sequences, and intelligent chatbots that work around the clock for your business.</div></div>
+        <div class="svc-card reveal d2"><div class="svc-icon">📊</div><div class="svc-name">Market Intelligence</div><div class="svc-desc">AI-powered insights into your competitors, market trends, and customer behavior — in real time.</div></div>
+        <div class="svc-card reveal d3"><div class="svc-icon">📁</div><div class="svc-name">Business Portfolio Systems</div><div class="svc-desc">Professional systems to present, manage, and grow your business portfolio with measurable impact.</div></div>
+        <div class="svc-card reveal"><div class="svc-icon">🧠</div><div class="svc-name">Custom AI Stack Setup</div><div class="svc-desc">We hand-pick, configure, and deploy the exact AI tools your business needs — no wasted spend.</div></div>
+      </div>
+    </div>
+    <div class="svc-panel" id="panel-creative">
+      <p class="psub">Design &amp; Visual Craft</p>
+      <div class="svc-grid">
+        <div class="svc-card cc reveal"><div class="svc-icon">💍</div><div class="svc-name">Wedding Card Design</div><div class="svc-desc">Bespoke, elegant wedding stationery that reflects your unique love story — crafted with precision.</div></div>
+        <div class="svc-card cc reveal d1"><div class="svc-icon">🎬</div><div class="svc-name">Invitation Videos</div><div class="svc-desc">Cinematic, shareable invitation videos that make a lasting impression before the event even begins.</div></div>
+        <div class="svc-card cc reveal d2"><div class="svc-icon">🖼️</div><div class="svc-name">Poster &amp; Creative Design</div><div class="svc-desc">Eye-catching visual assets for any occasion — events, promotions, social media, and beyond.</div></div>
+        <div class="svc-card cc reveal d3"><div class="svc-icon">✦</div><div class="svc-name">Logo &amp; Branding</div><div class="svc-desc">From concept to complete brand identity — logos, palettes, typography, and brand guidelines.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="proj-top">
+      <div class="reveal">
+        <span class="ltag">Our Work</span>
+        <h2 class="sec-title">Projects We've <span class="hl">Delivered</span></h2>
+      </div>
+      <div class="pfilt reveal d1">
+        <button class="pf active" onclick="filterProj('all',this)">All</button>
+        <button class="pf" onclick="filterProj('ai',this)">AI &amp; Automation</button>
+        <button class="pf" onclick="filterProj('design',this)">Creative Design</button>
+        <button class="pf" onclick="filterProj('video',this)">Video</button>
+      </div>
+    </div>
+
+    <div class="proj-grid" id="proj-grid">
+
+      <!-- Wedding Invitation Video — names masked via video overlay -->
+      <div class="proj-card reveal" data-cat="video">
+        <div class="pvw" style="position:relative;">
+          <video id="vid1" muted loop preload="auto">
+            <source src="weddinginvitationvideo.mp4" type="video/mp4">
+          </video>
+          <!-- Frosted name-mask bar overlaid on top portion of video where names appear -->
+          <div style="position:absolute;top:0;left:0;right:0;height:22%;background:linear-gradient(to bottom,rgba(7,7,26,.92) 60%,transparent 100%);backdrop-filter:blur(12px);z-index:3;display:flex;align-items:center;justify-content:center;gap:8px;">
+            <span style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(167,139,250,.7);">🔒 Client Privacy Protected</span>
+          </div>
+          <div class="pov" style="z-index:4;"><div class="pplay">▶</div></div>
+        </div>
+        <div class="pinfo">
+          <div class="privacy-badge">🔒 Names Hidden</div>
+          <div class="ptag">✦ Invitation Video</div>
+          <div class="pname">Wedding Invitation Video</div>
+          <div class="pdesc">A cinematic wedding invitation video crafted with elegance — designed to captivate guests before the big day.</div>
+        </div>
+      </div>
+
+      <!-- Business Proposal PPT Video -->
+      <div class="proj-card reveal d1" data-cat="video">
+        <div class="pvw">
+          <video id="vid2" muted loop preload="auto">
+            <source src="businessproposalppt.mp4" type="video/mp4">
+          </video>
+          <div class="pov"><div class="pplay">▶</div></div>
+        </div>
+        <div class="pinfo">
+          <div class="ptag">⚙️ AI &amp; Business</div>
+          <div class="pname">Business Proposal Presentation</div>
+          <div class="pdesc">A polished, AI-assisted business proposal deck built to impress investors and decision-makers.</div>
+        </div>
+      </div>
+
+      <!-- Resume Portfolio Website Video -->
+      <div class="proj-card reveal d2" data-cat="ai">
+        <div class="pvw">
+          <video muted loop preload="auto">
+            <source src="resumeportfolio_new.mp4" type="video/mp4">
+          </video>
+          <div class="pov"><div class="pplay">&#9654;</div></div>
+        </div>
+        <div class="pinfo">
+          <div class="ptag">&#127760; AI Website Development</div>
+          <div class="pname">Resume Portfolio Website</div>
+          <div class="pdesc">A sleek, modern resume portfolio website built to impress &#8212; designed to showcase skills, projects, and personality with impact.</div>
+        </div>
+      </div>
+
+      <!-- Syarikat S. Tavamany Logo -->
+      <div class="proj-card reveal" data-cat="design">
+        <div style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#06241a,#0d4a32);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <img src="Screenshot_2026-04-02_135606.png" alt="Syarikat S. Tavamany Logo" style="max-width:85%;max-height:85%;object-fit:contain;display:block;">
+        </div>
+        <div class="pinfo">
+          <div class="ptag">✦ Logo &amp; Branding</div>
+          <div class="pname">Syarikat S. Tavamany — Logo</div>
+          <div class="pdesc">A bold industrial badge logo for a long-established Malaysian company, capturing heritage and craftsmanship since 1980.</div>
+        </div>
+      </div>
+
+      <!-- Kaffee & Code Logo -->
+      <div class="proj-card reveal d1" data-cat="design">
+        <div style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1e3a0f,#3a6b1a);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <img src="cc1.png" alt="Kaffee & Code Logo" style="max-width:85%;max-height:85%;object-fit:contain;display:block;">
+        </div>
+        <div class="pinfo">
+          <div class="ptag">✦ Logo &amp; Branding</div>
+          <div class="pname">Kaffee &amp; Code — Brand Identity</div>
+          <div class="pdesc">A retro-badge brand identity for a café-meets-tech brand — playful, bold, and built to stand out.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:520px;margin:0 auto;">
+      <span class="ltag">The Process</span>
+      <h2 class="sec-title">Three steps to <span class="hl">done</span></h2>
+      <p class="sec-desc" style="margin:0 auto;">No complexity. No guesswork. Just results.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="snum">01</div><div class="stitle">Submit Your Requirements</div><div class="sdesc">Tell us what you need via WhatsApp or email. No forms, no calls required — just a simple brief.</div><div class="sarr">→</div></div>
+      <div class="step reveal d1"><div class="snum">02</div><div class="stitle">We Design &amp; Build</div><div class="sdesc">Our team selects the perfect tools, designs your solution, and builds everything from scratch — tailored for you.</div><div class="sarr">→</div></div>
+      <div class="step reveal d2"><div class="snum">03</div><div class="stitle">You Relax &amp; Receive</div><div class="sdesc">We deliver a polished, production-ready solution. You focus on what matters — growing your business.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="reveal">
+        <span class="ltag">Our Commitment</span>
+        <h2 class="sec-title">Premium Quality.<br><span class="hl">Guaranteed Value.</span></h2>
+        <p class="trust-body">We don't compete on being the cheapest — we compete on delivering the best results. Every solution we build is intentional, optimized, and made to last.</p>
+        <ul class="trust-list">
+          <li>Tailored solutions — no templates, ever</li>
+          <li>Carefully selected AI tools, no unnecessary costs</li>
+          <li>Efficient builds that save you time and money</li>
+        </ul>
+      </div>
+      <div class="gc reveal d2">
+        <div class="gbadge">Best Price Guarantee</div>
+        <div class="gtitle">We match<br>the value. 💎</div>
+        <p class="gbody">If you find a comparable service offering the same level of quality and scope — we'll match the value. No questions asked. Your investment is always protected.</p>
+        <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20submit%20my%20requirements%20to%20The%20Complete%20Aura" target="_blank" class="btn-purple">Claim Your Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIEF CTA -->
+<section id="brief">
+  <div class="brief-w">
+    <div class="reveal"><span class="ltag" style="display:block;text-align:center;">Ready to Begin?</span><h2 class="sec-title" style="text-align:center;">Every requirement<br>is <span class="hl">unique</span></h2></div>
+    <p class="sec-desc reveal" style="text-align:center;margin:16px auto 48px;">Whether you're building a business system or designing something special, we create fully customized solutions tailored to your exact needs.</p>
+    <div class="reveal" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20submit%20my%20requirements%20to%20The%20Complete%20Aura" target="_blank" class="btn-purple">💬 Start Your Briefing</a>
+      <a href="mailto:thecompleteauraai@gmail.com?subject=Business%20Requirements%20Brief" class="btn-outline">✉️ Email Your Brief</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="flogo-row">
+        <img src="auraai.png" alt="The Complete Aura" class="flogo-img">
+        <div class="fbrand">The Complete Aura</div>
+      </div>
+      <div class="ftagline">"One AI to rule them all."</div>
+      <p class="fabout">Premium AI concierge and creative studio based in India &amp; Malaysia. We select, build, and manage AI systems — plus high-quality creative design services.</p>
+    </div>
+    <div>
+      <div class="fcol-title">Services</div>
+      <div class="flinks">
+        <span class="flink">AI Website Development</span>
+        <span class="flink">Automation &amp; Chatbots</span>
+        <span class="flink">Market Intelligence</span>
+        <span class="flink">Wedding &amp; Invitation Design</span>
+        <span class="flink">Logo &amp; Branding</span>
+      </div>
+    </div>
+    <div>
+      <div class="fcol-title">Get In Touch</div>
+      <div class="flinks">
+        <a href="https://wa.me/60104290595" target="_blank" class="flink"><span class="flink-ico">💬</span> +60 10-429 0595</a>
+        <a href="mailto:thecompleteauraai@gmail.com" class="flink"><span class="flink-ico">✉️</span> thecompleteauraai@gmail.com</a>
+        <a href="https://www.linkedin.com/in/the-complete-aura-ai-316b21403" target="_blank" class="flink-social linkedin">
+          <span class="sico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+          LinkedIn — The Complete Aura
+        </a>
+        <a href="https://www.instagram.com/thecompleteauraai?igsh=b2xla3A0bTNzamxq" target="_blank" class="flink-social instagram">
+          <span class="sico"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></span>
+          Instagram — @thecompleteauraai
+        </a>
+        <div style="margin-top:12px;">
+          <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20submit%20my%20requirements%20to%20The%20Complete%20Aura" target="_blank" class="btn-purple" style="font-size:13px;padding:12px 24px;">Get a Custom Quote →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2025 The Complete Aura. All rights reserved.</span>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a href="https://www.linkedin.com/in/the-complete-aura-ai-316b21403" target="_blank" class="social-btn linkedin" title="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://www.instagram.com/thecompleteauraai?igsh=b2xla3A0bTNzamxq" target="_blank" class="social-btn instagram" title="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+      <span style="color:var(--indigo-l);">✦ Premium AI &amp; Creative Studio — India &amp; Malaysia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<div class="wa-float">
+  <div class="wa-pill">⚡ We reply within 5 minutes</div>
+  <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20submit%20my%20requirements%20to%20The%20Complete%20Aura" target="_blank" class="wa-btn" title="Chat on WhatsApp">💬</a>
+</div>
+
+<script>
+  /* ── Nav scroll ── */
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+  /* ── Services panel toggle ── */
+  function switchPanel(id, btn) {
+    document.querySelectorAll('.svc-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tog').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+    document.querySelectorAll('#panel-' + id + ' .reveal').forEach((el, i) => {
+      el.classList.remove('visible');
+      setTimeout(() => el.classList.add('visible'), i * 70);
+    });
+  }
+
+  /* ── Project filter ── */
+  function filterProj(cat, btn) {
+    document.querySelectorAll('.pf').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#proj-grid > *').forEach(c => {
+      c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  /* ── Video hover/touch play for project cards ── */
+  document.querySelectorAll('.pvw video').forEach(v => {
+    const card = v.closest('.proj-card');
+    let playing = false;
+    const playV = () => { v.play().catch(() => {}); playing = true; };
+    const stopV = () => { v.pause(); v.currentTime = 0; playing = false; };
+    card.addEventListener('mouseenter', playV);
+    card.addEventListener('mouseleave', stopV);
+    card.addEventListener('touchstart', () => {
+      playing ? stopV() : playV();
+    }, { passive: true });
+    const overlay = card.querySelector('.pov');
+    if (overlay) {
+      overlay.addEventListener('click', e => {
+        e.stopPropagation();
+        if (v.paused) { playV(); overlay.style.opacity = '0'; }
+        else { stopV(); overlay.style.opacity = '1'; }
+      });
+    }
+  });
+
+  /* ── Scroll reveal ── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
