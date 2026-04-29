@@ -1,0 +1,154 @@
+{
+  "name": "Aura Intake — Email + Sheets + Files",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "aura-intake",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook — Aura Intake",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "aura-intake"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "{\"status\":\"received\"}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              { "name": "Access-Control-Allow-Origin", "value": "*" },
+              { "name": "Content-Type", "value": "application/json" }
+            ]
+          }
+        }
+      },
+      "id": "respond-immediately",
+      "name": "Respond Immediately",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [460, 180]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "id": "1", "name": "leadName",        "value": "={{ $json.body.name || $json.body.returningEmail || 'Returning Client' }}", "type": "string" },
+            { "id": "2", "name": "leadEmail",       "value": "={{ $json.body.email || $json.body.returningEmail }}", "type": "string" },
+            { "id": "3", "name": "leadIndustry",    "value": "={{ $json.body.industry || 'N/A' }}", "type": "string" },
+            { "id": "4", "name": "leadBottleneck",  "value": "={{ $json.body.bottleneck || 'N/A' }}", "type": "string" },
+            { "id": "5", "name": "leadRequirements","value": "={{ $json.body.requirements || 'N/A' }}", "type": "string" },
+            { "id": "6", "name": "isReturning",     "value": "={{ $json.body.returning === 'true' || $json.body.returning === true }}", "type": "boolean" },
+            { "id": "7", "name": "entryPage",       "value": "={{ $json.body.entryPage || '/' }}", "type": "string" },
+            { "id": "8", "name": "referrer",        "value": "={{ $json.body.referrer || 'Direct' }}", "type": "string" },
+            { "id": "9", "name": "submittedAt",     "value": "={{ new Date($json.body.timestamp || Date.now()).toLocaleString('en-MY', { timeZone: 'Asia/Kuala_Lumpur', dateStyle: 'medium', timeStyle: 'short' }) }}", "type": "string" },
+            { "id": "10","name": "waLink",          "value": "={{ 'https://wa.me/60104290595?text=Hi+' + encodeURIComponent($json.body.name || 'there') + ',+I+have+reviewed+your+Aura+brief+and+would+love+to+connect.' }}", "type": "string" },
+            { "id": "11","name": "hasFiles",        "value": "={{ Array.isArray($json.body.files) && $json.body.files.length > 0 }}", "type": "boolean" },
+            { "id": "12","name": "fileCount",       "value": "={{ Array.isArray($json.body.files) ? $json.body.files.length : 0 }}", "type": "number" }
+          ]
+        }
+      },
+      "id": "set-fields",
+      "name": "Set — Format Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_GOOGLE_SHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Leads", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp":     "={{ $json.submittedAt }}",
+            "Name":          "={{ $json.leadName }}",
+            "Email":         "={{ $json.leadEmail }}",
+            "Industry":      "={{ $json.leadIndustry }}",
+            "Bottleneck":    "={{ $json.leadBottleneck }}",
+            "Requirements":  "={{ $json.leadRequirements }}",
+            "Returning":     "={{ $json.isReturning ? 'Yes' : 'No' }}",
+            "Entry Page":    "={{ $json.entryPage }}",
+            "Referrer":      "={{ $json.referrer }}",
+            "Files":         "={{ $json.fileCount + ' file(s)' }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "google-sheets",
+      "name": "Google Sheets — Log Lead",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "sendTo": "thecompleteauraai@gmail.com",
+        "subject": "=✦ New Brief: {{ $json.leadName }} · {{ $json.leadIndustry }}",
+        "emailType": "html",
+        "message": "=<!DOCTYPE html><html><head><meta charset='UTF-8'><style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');*{box-sizing:border-box;margin:0;padding:0;}body{background:#07071A;font-family:'Outfit',Arial,sans-serif;padding:32px 16px;}</style></head><body><table width='100%' cellpadding='0' cellspacing='0' style='max-width:580px;margin:0 auto;'><tr><td style='background:linear-gradient(135deg,#0B0B22,#0E0E28);border-radius:16px 16px 0 0;border:1px solid rgba(139,92,246,0.3);border-bottom:none;padding:28px 32px;'><table width='100%'><tr><td><div style='display:inline-block;width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,#6366f1,#8b5cf6);text-align:center;line-height:38px;font-size:16px;color:#fff;'>✦</div>&nbsp;&nbsp;<span style='font-weight:800;font-size:15px;color:#EEF0FF;vertical-align:middle;'>The Complete Aura</span></td><td align='right'><span style='font-size:10px;font-weight:700;letter-spacing:0.12em;color:#a78bfa;padding:5px 13px;border-radius:100px;background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.3);'>🔴 NEW BRIEF</span></td></tr></table></td></tr><tr><td style='background:rgba(99,102,241,0.14);border-left:1px solid rgba(139,92,246,0.3);border-right:1px solid rgba(139,92,246,0.3);padding:24px 32px;'><div style='font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(238,240,255,0.4);margin-bottom:6px;'>Incoming Lead</div><div style='font-weight:800;font-size:24px;color:#EEF0FF;'>{{ $json.leadName }}</div><div style='font-size:12px;color:rgba(238,240,255,0.5);margin-top:5px;'>{{ $json.leadIndustry }} &nbsp;·&nbsp; {{ $json.submittedAt }}</div></td></tr><tr><td style='background:#09091f;border:1px solid rgba(139,92,246,0.3);border-top:none;border-bottom:none;padding:28px 32px;'><div style='font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(238,240,255,0.3);margin-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:10px;'>Executive Brief</div><table width='100%' cellpadding='0' cellspacing='0'><tr><td style='padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:8px 8px 0 0;border-bottom:none;'><div style='font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(167,139,250,0.7);margin-bottom:4px;'>Full Name</div><div style='font-size:14px;font-weight:600;color:#EEF0FF;'>{{ $json.leadName }}</div></td></tr><tr><td style='padding:12px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-top:none;border-bottom:none;'><div style='font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(167,139,250,0.7);margin-bottom:4px;'>Industry</div><div style='font-size:14px;font-weight:600;color:#EEF0FF;'>{{ $json.leadIndustry }}</div></td></tr><tr><td style='padding:12px 16px;background:rgba(99,102,241,0.07);border:1px solid rgba(99,102,241,0.18);border-top:none;border-bottom:none;'><div style='font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(167,139,250,0.7);margin-bottom:4px;'>Core Bottleneck</div><div style='font-size:13px;color:rgba(238,240,255,0.85);line-height:1.65;'>{{ $json.leadBottleneck }}</div></td></tr><tr><td style='padding:12px 16px;background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.2);border-top:none;border-bottom:none;'><div style='font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(167,139,250,0.7);margin-bottom:4px;'>Requirements</div><div style='font-size:13px;color:rgba(238,240,255,0.85);line-height:1.65;'>{{ $json.leadRequirements }}</div></td></tr><tr><td style='padding:12px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-top:none;border-radius:0 0 8px 8px;'><div style='font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(167,139,250,0.7);margin-bottom:4px;'>Email</div><div style='font-size:14px;font-weight:600;color:#a78bfa;'>{{ $json.leadEmail }}</div></td></tr></table><div style='background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:12px 16px;margin:18px 0;'><div style='font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(238,240,255,0.3);margin-bottom:8px;'>Analytics</div><table width='100%'><tr><td width='33%'><div style='font-size:10px;color:rgba(238,240,255,0.3);'>Entry Page</div><div style='font-size:11px;color:rgba(238,240,255,0.55);font-weight:600;'>{{ $json.entryPage }}</div></td><td width='33%'><div style='font-size:10px;color:rgba(238,240,255,0.3);'>Referrer</div><div style='font-size:11px;color:rgba(238,240,255,0.55);font-weight:600;'>{{ $json.referrer }}</div></td><td width='33%'><div style='font-size:10px;color:rgba(238,240,255,0.3);'>Documents</div><div style='font-size:11px;color:rgba(238,240,255,0.55);font-weight:600;'>{{ $json.fileCount }} file(s)</div></td></tr></table></div><table width='100%'><tr><td align='center' style='padding-bottom:12px;'><a href='{{ $json.waLink }}' style='display:inline-block;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-family:Arial,sans-serif;font-weight:700;font-size:14px;text-decoration:none;padding:14px 32px;border-radius:9px;'>💬 Reply via WhatsApp</a></td></tr><tr><td align='center'><a href='mailto:{{ $json.leadEmail }}?subject=Your Complete Aura Brief&body=Hi {{ $json.leadName }},' style='display:inline-block;background:transparent;color:rgba(167,139,250,0.9);font-family:Arial,sans-serif;font-weight:700;font-size:12px;text-decoration:none;padding:10px 24px;border-radius:9px;border:1px solid rgba(139,92,246,0.35);'>✉️ Reply via Email</a></td></tr></table></td></tr><tr><td style='background:#040410;border:1px solid rgba(139,92,246,0.2);border-top:none;border-radius:0 0 16px 16px;padding:16px 32px;'><div style='font-size:11px;color:rgba(238,240,255,0.22);line-height:1.6;'>Auto-generated by the <strong style='color:rgba(238,240,255,0.4);'>Aura Intake Assistant</strong>. This lead self-qualified through a multi-step briefing flow. <a href='YOUR_GOOGLE_SHEET_LINK' style='color:#6366f1;'>View in Google Sheets →</a></div></td></tr></table></body></html>",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              { "property": "data" }
+            ]
+          }
+        }
+      },
+      "id": "send-email",
+      "name": "Gmail — Send Lead Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Set — Format Fields').item.json.leadEmail }}",
+        "subject": "Your Complete Aura brief has been received ✦",
+        "emailType": "html",
+        "message": "=<!DOCTYPE html><html><head><meta charset='UTF-8'></head><body style='background:#07071A;font-family:Arial,sans-serif;padding:32px 16px;'><table width='100%' style='max-width:520px;margin:0 auto;'><tr><td style='background:linear-gradient(135deg,#0B0B22,#0E0E28);border-radius:16px 16px 0 0;border:1px solid rgba(139,92,246,0.3);border-bottom:none;padding:28px 32px;text-align:center;'><div style='font-size:32px;margin-bottom:8px;'>✦</div><div style='font-weight:800;font-size:20px;color:#EEF0FF;margin-bottom:4px;'>Brief Received</div><div style='font-size:13px;color:rgba(238,240,255,0.5);'>The Complete Aura</div></td></tr><tr><td style='background:#09091f;border:1px solid rgba(139,92,246,0.3);border-top:none;border-bottom:none;padding:28px 32px;'><p style='font-size:14px;color:rgba(238,240,255,0.75);line-height:1.75;margin-bottom:16px;'>Hi {{ $('Set — Format Fields').item.json.leadName.split(' ')[0] }},</p><p style='font-size:14px;color:rgba(238,240,255,0.75);line-height:1.75;margin-bottom:16px;'>Thank you for submitting your brief to The Complete Aura. Our team has received your requirements and will review them shortly.</p><p style='font-size:14px;color:rgba(238,240,255,0.75);line-height:1.75;margin-bottom:28px;'>A specialist will reach out to you within <strong style='color:#a78bfa;'>one business hour</strong> to discuss the next steps.</p><div style='background:rgba(99,102,241,0.1);border:1px solid rgba(139,92,246,0.25);border-radius:10px;padding:16px 20px;margin-bottom:24px;'><div style='font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(167,139,250,0.7);margin-bottom:8px;'>Your Brief Summary</div><div style='font-size:13px;color:rgba(238,240,255,0.7);line-height:1.7;'><strong style='color:#EEF0FF;'>Industry:</strong> {{ $('Set — Format Fields').item.json.leadIndustry }}<br><strong style='color:#EEF0FF;'>Challenge:</strong> {{ $('Set — Format Fields').item.json.leadBottleneck }}</div></div><table width='100%'><tr><td align='center'><a href='https://wa.me/60104290595' style='display:inline-block;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-family:Arial,sans-serif;font-weight:700;font-size:13px;text-decoration:none;padding:13px 28px;border-radius:9px;'>💬 Chat on WhatsApp</a></td></tr></table></td></tr><tr><td style='background:#040410;border:1px solid rgba(139,92,246,0.2);border-top:none;border-radius:0 0 16px 16px;padding:14px 32px;text-align:center;'><div style='font-size:11px;color:rgba(238,240,255,0.22);'>© 2025 The Complete Aura &nbsp;·&nbsp; India &amp; Malaysia</div></td></tr></table></body></html>"
+      },
+      "id": "auto-reply",
+      "name": "Gmail — Auto Reply to Lead",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [900, 460]
+    }
+  ],
+  "connections": {
+    "Webhook — Aura Intake": {
+      "main": [
+        [
+          { "node": "Respond Immediately", "type": "main", "index": 0 },
+          { "node": "Set — Format Fields",  "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Set — Format Fields": {
+      "main": [
+        [
+          { "node": "Google Sheets — Log Lead", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Google Sheets — Log Lead": {
+      "main": [
+        [
+          { "node": "Gmail — Send Lead Email",    "type": "main", "index": 0 },
+          { "node": "Gmail — Auto Reply to Lead", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

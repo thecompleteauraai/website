@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="ikBBkfxXf6VOfH6XBkWpMyvK7Y5SIX3hUU9R2ga9AG8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Complete Aura — Premium AI Concierge &amp; Creative Studio</title>
 <meta name="description" content="The Complete Aura is a premium AI concierge and creative studio based in India &amp; Malaysia. We select, build, and manage custom AI systems, automation, and creative design services.">
@@ -285,6 +284,133 @@ footer{background:#040410;border-top:1px solid var(--bdr);padding:64px 52px 40px
   .proj-top{flex-direction:column;align-items:flex-start;}
   .proj-grid{grid-template-columns:1fr;}
 }
+
+/* ═══ 1. AURA FLOW — BUSINESS LIFECYCLE VISUAL ═══ */
+#aura-flow{background:var(--bg2);overflow:hidden;position:relative;}
+#aura-flow::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(99,102,241,.06),transparent 65%);pointer-events:none;border-radius:50%;}
+.flow-stages{display:flex;gap:0;margin-top:64px;position:relative;z-index:1;}
+.flow-connector{flex:1;display:flex;align-items:center;justify-content:center;padding-top:56px;}
+.flow-connector-line{height:1px;width:100%;background:linear-gradient(90deg,rgba(99,102,241,.4),rgba(139,92,246,.4));position:relative;}
+.flow-connector-line::after{content:'›';position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:var(--violet-l);font-size:16px;}
+.flow-stage{display:flex;flex-direction:column;align-items:center;text-align:center;width:160px;flex-shrink:0;cursor:pointer;group:true;}
+.flow-stage-num{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--indigo-l);margin-bottom:14px;opacity:.7;}
+.flow-icon-wrap{width:88px;height:88px;border-radius:50%;border:1px solid var(--bdr-v);background:rgba(99,102,241,.08);display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:16px;transition:all .4s;position:relative;backdrop-filter:blur(8px);}
+.flow-icon-wrap::after{content:'';position:absolute;inset:-1px;border-radius:50%;background:linear-gradient(135deg,rgba(99,102,241,.3),rgba(139,92,246,.3));opacity:0;transition:opacity .4s;z-index:-1;}
+.flow-stage:hover .flow-icon-wrap{transform:translateY(-8px) scale(1.08);border-color:var(--violet-l);box-shadow:0 0 40px var(--v-glow),0 20px 40px rgba(0,0,0,.4);}
+.flow-stage:hover .flow-icon-wrap::after{opacity:1;}
+.flow-stage-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;color:var(--text);margin-bottom:8px;transition:color .3s;}
+.flow-stage:hover .flow-stage-name{color:var(--violet-l);}
+.flow-stage-prop{font-size:12px;color:var(--text-m);line-height:1.55;max-height:0;overflow:hidden;transition:max-height .5s ease,opacity .4s;opacity:0;max-width:140px;}
+.flow-stage:hover .flow-stage-prop{max-height:80px;opacity:1;}
+@media(max-width:900px){
+  .flow-stages{flex-direction:column;gap:0;align-items:center;}
+  .flow-connector{padding-top:0;width:1px;height:32px;flex:none;}
+  .flow-connector-line{width:1px;height:100%;background:linear-gradient(180deg,rgba(99,102,241,.4),rgba(139,92,246,.4));}
+  .flow-connector-line::after{content:'↓';right:auto;left:50%;transform:translateX(-50%);bottom:-14px;top:auto;}
+  .flow-stage-prop{max-height:none;opacity:1;}
+}
+
+/* ═══ 2. BRIEFING ROOM ═══ */
+#briefing-room{background:var(--bg4);position:relative;overflow:hidden;}
+#briefing-room::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+.br-shell{max-width:820px;margin:0 auto;text-align:center;}
+.br-progress{display:flex;align-items:center;justify-content:center;gap:0;margin:52px 0 48px;}
+.br-step-dot{width:32px;height:32px;border-radius:50%;border:1px solid var(--bdr);background:var(--surf);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:var(--text-m);transition:all .4s;flex-shrink:0;}
+.br-step-dot.active{background:linear-gradient(135deg,var(--indigo),var(--violet));border-color:transparent;color:#fff;box-shadow:0 0 20px var(--v-glow);}
+.br-step-dot.done{background:rgba(99,102,241,.2);border-color:var(--indigo-l);color:var(--indigo-l);}
+.br-step-line{flex:1;height:1px;background:var(--bdr-s);max-width:80px;transition:background .4s;}
+.br-step-line.done{background:var(--indigo-l);}
+.br-panel{display:none;animation:brfade .4s ease both;}
+.br-panel.active{display:block;}
+@keyframes brfade{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+.br-question{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(20px,3vw,28px);margin-bottom:10px;letter-spacing:-.01em;}
+.br-hint{font-size:15px;color:var(--text-m);margin-bottom:36px;}
+.br-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.br-card{border:1px solid var(--bdr-s);border-radius:14px;padding:28px 20px;cursor:pointer;transition:all .35s;background:var(--surf2);text-align:left;}
+.br-card:hover,.br-card.selected{border-color:var(--bdr-v);background:rgba(99,102,241,.1);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.4);}
+.br-card.selected{border-color:var(--violet-l);box-shadow:0 0 30px var(--v-glow);}
+.br-card-ico{font-size:32px;margin-bottom:14px;}
+.br-card-title{font-family:'Outfit',sans-serif;font-weight:700;font-size:15px;margin-bottom:6px;}
+.br-card-desc{font-size:13px;color:var(--text-m);line-height:1.55;}
+.br-nav{display:flex;gap:12px;justify-content:center;margin-top:36px;}
+.br-back{padding:12px 28px;border-radius:8px;border:1px solid var(--bdr);background:transparent;color:var(--text-d);font-family:'Outfit',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:all .3s;}
+.br-back:hover{border-color:var(--bdr-v);color:var(--violet-l);}
+.br-next{padding:12px 32px;border-radius:8px;background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:all .3s;letter-spacing:.04em;}
+.br-next:hover{box-shadow:0 0 30px var(--v-glow);transform:translateY(-2px);}
+.br-next:disabled{opacity:.35;cursor:default;transform:none;box-shadow:none;}
+.br-final{padding:48px 32px;border:1px solid var(--bdr-v);border-radius:18px;background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(139,92,246,.05));}
+.br-final-ico{font-size:52px;margin-bottom:20px;}
+.br-final-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:26px;margin-bottom:12px;}
+.br-final-sub{font-size:16px;color:var(--text-d);margin-bottom:32px;line-height:1.7;}
+.br-summary{display:inline-flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:32px;}
+.br-tag{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:7px 18px;border-radius:100px;background:rgba(139,92,246,.15);border:1px solid var(--bdr-v);color:var(--violet-l);}
+@media(max-width:680px){.br-cards{grid-template-columns:1fr;}
+.br-progress{gap:4px;}.br-step-line{max-width:40px;}}
+
+/* ═══ 3. ARCHITECTURE OF CERTAINTY ═══ */
+#architecture{background:var(--bg);position:relative;}
+#architecture::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--bdr-v),transparent);}
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px;border-radius:18px;overflow:hidden;border:1px solid var(--bdr);}
+.arch-col{background:var(--surf);padding:48px 36px;position:relative;overflow:hidden;transition:background .4s;}
+.arch-col:hover{background:rgba(99,102,241,.07);}
+.arch-col::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--indigo),var(--violet));transform:scaleX(0);transform-origin:left;transition:transform .5s ease;}
+.arch-col:hover::before{transform:scaleX(1);}
+.arch-col-num{font-family:'Rajdhani',sans-serif;font-size:56px;font-weight:700;line-height:1;color:rgba(99,102,241,.12);margin-bottom:20px;transition:color .4s;}
+.arch-col:hover .arch-col-num{color:rgba(139,92,246,.25);}
+.arch-col-icon{font-size:28px;margin-bottom:18px;}
+.arch-col-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;margin-bottom:14px;}
+.arch-col-body{font-size:14px;color:var(--text-d);line-height:1.8;}
+.arch-tech-pill{display:inline-flex;align-items:center;gap:6px;margin-top:20px;padding:6px 14px;border-radius:100px;background:rgba(99,102,241,.1);border:1px solid var(--bdr);font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--indigo-l);}
+@media(max-width:768px){.arch-grid{grid-template-columns:1fr;}}
+
+/* ═══ 4. MARKET INTELLIGENCE REPORT ═══ */
+#intel-report{background:var(--bg2);}
+.report-shell{max-width:900px;margin:64px auto 0;}
+.report-frame{border:1px solid var(--bdr-v);border-radius:18px;overflow:hidden;box-shadow:0 0 80px rgba(139,92,246,.15),0 40px 80px rgba(0,0,0,.5);}
+.report-header{background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(139,92,246,.15));border-bottom:1px solid var(--bdr-v);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.report-title-row{display:flex;align-items:center;gap:12px;}
+.report-logo-dot{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--indigo),var(--violet));display:flex;align-items:center;justify-content:center;font-size:16px;}
+.report-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;}
+.report-sub{font-size:12px;color:var(--text-m);margin-top:2px;}
+.report-badge{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;padding:6px 16px;border-radius:100px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);color:var(--cyan);}
+.report-body{background:rgba(7,7,26,.6);backdrop-filter:blur(8px);padding:32px;}
+.report-section-title{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text-m);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.report-section-title::after{content:'';flex:1;height:1px;background:var(--bdr-s);}
+.report-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;}
+.report-card{background:var(--surf);border:1px solid var(--bdr-s);border-radius:12px;padding:22px 24px;}
+.sentiment-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+.sentiment-name{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:var(--text-d);}
+.sentiment-score{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--violet-l);}
+.bar-track{height:6px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden;margin-bottom:8px;}
+.bar-fill{height:100%;border-radius:3px;transition:width 1.2s ease;}
+.bar-label{font-size:11px;color:var(--text-m);}
+.gap-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.gap-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-d);line-height:1.5;}
+.gap-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);margin-top:5px;flex-shrink:0;}
+.rec-box{background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(139,92,246,.08));border:1px solid var(--bdr-v);border-radius:12px;padding:22px 24px;}
+.rec-box-head{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--violet-l);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.rec-box-body{font-size:14px;color:var(--text-d);line-height:1.7;}
+.report-disclaimer{font-size:12px;color:var(--text-m);text-align:center;margin-top:24px;font-style:italic;}
+@media(max-width:680px){.report-row{grid-template-columns:1fr;}.report-body{padding:20px;}}
+
+/* ═══ 5. AURA SPECIALIST FLOATING WIDGET (replacing basic WA) ═══ */
+.aura-specialist{position:fixed;bottom:28px;right:28px;z-index:9000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.as-bubble{background:rgba(11,11,34,.96);border:1px solid var(--bdr-v);border-radius:16px 16px 4px 16px;padding:18px 22px;max-width:260px;backdrop-filter:blur(20px);box-shadow:0 8px 40px rgba(0,0,0,.5),0 0 40px rgba(139,92,246,.15);opacity:0;transform:translateY(12px) scale(.96);transition:opacity .35s ease,transform .35s ease;pointer-events:none;}
+.as-bubble.open{opacity:1;transform:none;pointer-events:auto;}
+.as-bubble-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.as-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),var(--violet));display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.as-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;}
+.as-status{font-size:11px;color:#4ADE80;display:flex;align-items:center;gap:4px;margin-top:2px;}
+.as-status-dot{width:5px;height:5px;background:#4ADE80;border-radius:50%;display:inline-block;animation:pdot 1.8s ease-in-out infinite;}
+.as-message{font-size:13px;color:var(--text-d);line-height:1.6;margin-bottom:16px;}
+.as-wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;border-radius:10px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;text-decoration:none;transition:all .3s;box-shadow:0 4px 20px rgba(37,211,102,.3);}
+.as-wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.5);}
+.as-trigger{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),var(--violet));display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;border:none;box-shadow:0 4px 28px var(--v-glow);transition:all .3s;position:relative;flex-shrink:0;}
+.as-trigger:hover{transform:scale(1.1);box-shadow:0 8px 50px var(--v-glow);}
+.as-trigger-pulse{position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--violet);opacity:0;animation:aspulse 2.5s ease-in-out infinite;}
+@keyframes aspulse{0%{opacity:.6;transform:scale(1);}100%{opacity:0;transform:scale(1.5);}}
+.as-notif{position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;background:#EF4444;border:2px solid var(--bg);font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;}
+@media(max-width:680px){.aura-specialist{bottom:18px;right:14px;}.as-bubble{max-width:220px;}}
 </style>
 </head>
 <body>
@@ -297,9 +423,10 @@ footer{background:#040410;border-top:1px solid var(--bdr);padding:64px 52px 40px
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#aura-flow">Aura Flow</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#how">Process</a></li>
+    <li><a href="#briefing-room">Briefing</a></li>
     <li><a href="#trust">Guarantee</a></li>
   </ul>
   <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20submit%20my%20requirements%20to%20The%20Complete%20Aura" target="_blank" class="nav-cta">Get a Custom Quote</a>
@@ -404,6 +531,56 @@ footer{background:#040410;border-top:1px solid var(--bdr);padding:64px 52px 40px
         <div class="svc-card cc reveal d2"><div class="svc-icon">🖼️</div><div class="svc-name">Poster &amp; Creative Design</div><div class="svc-desc">Eye-catching visual assets for any occasion — events, promotions, social media, and beyond.</div></div>
         <div class="svc-card cc reveal d3"><div class="svc-icon">✦</div><div class="svc-name">Logo &amp; Branding</div><div class="svc-desc">From concept to complete brand identity — logos, palettes, typography, and brand guidelines.</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AURA FLOW — BUSINESS LIFECYCLE ═══ -->
+<section id="aura-flow">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+      <span class="ltag">The Aura Flow</span>
+      <h2 class="sec-title">From vision to <span class="hl">market dominance</span></h2>
+      <p class="sec-desc" style="margin:0 auto 0;">An end-to-end orchestration system that takes you from strategy to scale — without the complexity.</p>
+    </div>
+    <div class="flow-stages reveal d1">
+      <div class="flow-stage">
+        <div class="flow-stage-num">01</div>
+        <div class="flow-icon-wrap">🎯</div>
+        <div class="flow-stage-name">Strategic Briefing</div>
+        <div class="flow-stage-prop">We extract your exact vision and define success metrics before a single line is written.</div>
+      </div>
+      <div class="flow-connector"><div class="flow-connector-line"></div></div>
+      <div class="flow-stage">
+        <div class="flow-stage-num">02</div>
+        <div class="flow-icon-wrap">⚙️</div>
+        <div class="flow-stage-name">Technical Orchestration</div>
+        <div class="flow-stage-prop">The right AI tools, configured precisely — no wasted spend, no technical debt, no guesswork.</div>
+      </div>
+      <div class="flow-connector"><div class="flow-connector-line"></div></div>
+      <div class="flow-stage">
+        <div class="flow-stage-num">03</div>
+        <div class="flow-icon-wrap">📊</div>
+        <div class="flow-stage-name">Market Intelligence</div>
+        <div class="flow-stage-prop">Real-time competitor analysis and market signals delivered before your rivals even notice the shift.</div>
+      </div>
+      <div class="flow-connector"><div class="flow-connector-line"></div></div>
+      <div class="flow-stage">
+        <div class="flow-stage-num">04</div>
+        <div class="flow-icon-wrap">🔧</div>
+        <div class="flow-stage-name">Automated Infrastructure</div>
+        <div class="flow-stage-prop">Workflows, automations, and systems that run 24/7 so your team can focus on what matters.</div>
+      </div>
+      <div class="flow-connector"><div class="flow-connector-line"></div></div>
+      <div class="flow-stage">
+        <div class="flow-stage-num">05</div>
+        <div class="flow-icon-wrap">🚀</div>
+        <div class="flow-stage-name">Growth Scaling</div>
+        <div class="flow-stage-prop">We monitor, optimize, and scale your systems as your business evolves — always ahead of the curve.</div>
+      </div>
+    </div>
+    <div class="reveal d2" style="text-align:center;margin-top:52px;">
+      <p style="font-size:14px;color:var(--text-m);font-family:'Rajdhani',sans-serif;letter-spacing:.06em;">HOVER OVER EACH STAGE TO REVEAL THE VALUE PROPOSITION</p>
     </div>
   </div>
 </section>
@@ -520,6 +697,98 @@ footer{background:#040410;border-top:1px solid var(--bdr);padding:64px 52px 40px
   </div>
 </section>
 
+<!-- ═══ ARCHITECTURE OF CERTAINTY ═══ -->
+<section id="architecture">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+      <span class="ltag">Under The Hood</span>
+      <h2 class="sec-title">The Architecture of <span class="hl">Certainty</span></h2>
+      <p class="sec-desc" style="margin:0 auto;">We handle the technical plumbing so you never have to think about it. Here's what powers every engagement.</p>
+    </div>
+    <div class="arch-grid reveal d1">
+      <div class="arch-col">
+        <div class="arch-col-num">01</div>
+        <div class="arch-col-icon">🔗</div>
+        <div class="arch-col-title">Intelligent Orchestration</div>
+        <div class="arch-col-body">We deploy advanced workflow orchestration layers that connect every AI tool, data source, and automation into a single, seamless system. Your business logic runs flawlessly — no manual handoffs, no dropped signals.</div>
+        <div class="arch-tech-pill">⚡ n8n Powered</div>
+      </div>
+      <div class="arch-col">
+        <div class="arch-col-num">02</div>
+        <div class="arch-col-icon">🧠</div>
+        <div class="arch-col-title">Elite LLM Routing</div>
+        <div class="arch-col-body">Not every task requires the same intelligence. We route your workloads to the optimal large language model — balancing speed, cost, and capability. You always get the best AI for the job, not just the most expensive one.</div>
+        <div class="arch-tech-pill">⚡ OpenRouter Routing</div>
+      </div>
+      <div class="arch-col">
+        <div class="arch-col-num">03</div>
+        <div class="arch-col-icon">🛡️</div>
+        <div class="arch-col-title">Zero Technical Debt</div>
+        <div class="arch-col-body">Every system we build is designed to scale cleanly. No spaghetti integrations. No vendor lock-in. No surprise costs six months later. We architect for your future, not just your present — so growth never breaks what we built.</div>
+        <div class="arch-tech-pill">⚡ Production-Grade</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARKET INTELLIGENCE REPORT PREVIEW ═══ -->
+<section id="intel-report">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+      <span class="ltag">Sample Output</span>
+      <h2 class="sec-title">What an <span class="hl">Aura Intel Report</span> looks like</h2>
+      <p class="sec-desc" style="margin:0 auto;">Executive-grade insights, delivered in a format your team can act on immediately.</p>
+    </div>
+    <div class="report-shell reveal d1">
+      <div class="report-frame">
+        <div class="report-header">
+          <div class="report-title-row">
+            <div class="report-logo-dot">✦</div>
+            <div>
+              <div class="report-title">Aura Market Intelligence Report</div>
+              <div class="report-sub">Confidential — Prepared exclusively for your business</div>
+            </div>
+          </div>
+          <div class="report-badge">SAMPLE PREVIEW</div>
+        </div>
+        <div class="report-body">
+          <div class="report-section-title">Competitor Sentiment Analysis</div>
+          <div class="report-row">
+            <div class="report-card">
+              <div class="sentiment-label"><span class="sentiment-name">Your Brand Sentiment</span><span class="sentiment-score" id="score-you">—</span></div>
+              <div class="bar-track"><div class="bar-fill" id="bar-you" style="width:0;background:linear-gradient(90deg,var(--indigo),var(--violet));"></div></div>
+              <div class="bar-label">Based on 2,400+ online mentions this quarter</div>
+            </div>
+            <div class="report-card">
+              <div class="sentiment-label"><span class="sentiment-name">Market Average Sentiment</span><span class="sentiment-score" id="score-avg">—</span></div>
+              <div class="bar-track"><div class="bar-fill" id="bar-avg" style="width:0;background:linear-gradient(90deg,rgba(99,102,241,.5),rgba(139,92,246,.4));"></div></div>
+              <div class="bar-label">Aggregated from top 5 competitors in your sector</div>
+            </div>
+          </div>
+          <div class="report-section-title">Market Gap Analysis</div>
+          <div class="report-card" style="margin-bottom:24px;">
+            <ul class="gap-list">
+              <li class="gap-item"><span class="gap-dot"></span><span>Underserved demand for <strong style="color:var(--text);">white-label AI concierge</strong> services in Southeast Asia — low competition, high intent signal.</span></li>
+              <li class="gap-item"><span class="gap-dot"></span><span>Competitors lack <strong style="color:var(--text);">end-to-end creative + AI bundling</strong> — clients currently sourcing from 3+ vendors for what you offer in one.</span></li>
+              <li class="gap-item"><span class="gap-dot"></span><span><strong style="color:var(--text);">Response time</strong> is a key differentiator — 78% of surveyed buyers cite slow vendor response as their top frustration.</span></li>
+              <li class="gap-item"><span class="gap-dot"></span><span>Rising search volume for <strong style="color:var(--text);">"AI setup service Malaysia"</strong> — 340% YoY growth, minimal paid competition.</span></li>
+            </ul>
+          </div>
+          <div class="report-section-title">Strategic Recommendation</div>
+          <div class="rec-box">
+            <div class="rec-box-head">✦ Aura Recommendation</div>
+            <div class="rec-box-body">Position aggressively in the <strong style="color:var(--violet-l);">SME onboarding</strong> segment. Your bundled model eliminates the 3-vendor problem competitors cannot solve. Lead with speed — a "delivered in 48h" guarantee would capture the highest-intent segment immediately. Prioritize LinkedIn authority content targeting Malaysian and Indian founders.</div>
+          </div>
+          <div class="report-disclaimer">This is a sample preview. Full reports are custom-built for your specific industry, competitors, and market position.</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal d2" style="text-align:center;margin-top:36px;">
+      <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20request%20a%20Market%20Intelligence%20Report%20from%20The%20Complete%20Aura" target="_blank" class="btn-purple">Request Your Custom Report →</a>
+    </div>
+  </div>
+</section>
+
 <!-- TRUST -->
 <section id="trust">
   <div class="container">
@@ -539,6 +808,96 @@ footer{background:#040410;border-top:1px solid var(--bdr);padding:64px 52px 40px
         <div class="gtitle">We match<br>the value. 💎</div>
         <p class="gbody">If you find a comparable service offering the same level of quality and scope — we'll match the value. No questions asked. Your investment is always protected.</p>
         <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20submit%20my%20requirements%20to%20The%20Complete%20Aura" target="_blank" class="btn-purple">Claim Your Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BRIEFING ROOM ═══ -->
+<section id="briefing-room">
+  <div class="container">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+      <span class="ltag">The Concierge Experience</span>
+      <h2 class="sec-title">Enter the <span class="hl">Briefing Room</span></h2>
+      <p class="sec-desc" style="margin:0 auto;">This isn't a contact form. It's your first consultation. Tell us what you're building, and we'll prepare your concierge before you even finish.</p>
+    </div>
+    <div class="br-shell reveal d1">
+      <div class="br-progress">
+        <div class="br-step-dot active" id="br-dot-1">1</div>
+        <div class="br-step-line" id="br-line-1"></div>
+        <div class="br-step-dot" id="br-dot-2">2</div>
+        <div class="br-step-line" id="br-line-2"></div>
+        <div class="br-step-dot" id="br-dot-3">3</div>
+      </div>
+
+      <!-- Step 1: Vision -->
+      <div class="br-panel active" id="br-p1">
+        <div class="br-question">What vision are we building today?</div>
+        <div class="br-hint">Select the engagement type that best describes your needs.</div>
+        <div class="br-cards">
+          <div class="br-card" onclick="brSelect(this,'vision')">
+            <div class="br-card-ico">🚀</div>
+            <div class="br-card-title">New Startup</div>
+            <div class="br-card-desc">Launch a new venture — AI-powered website, brand identity, and automation from day one.</div>
+          </div>
+          <div class="br-card" onclick="brSelect(this,'vision')">
+            <div class="br-card-ico">📊</div>
+            <div class="br-card-title">Market Intelligence</div>
+            <div class="br-card-desc">Understand your competitors, market gaps, and strategic opportunities with AI-powered research.</div>
+          </div>
+          <div class="br-card" onclick="brSelect(this,'vision')">
+            <div class="br-card-ico">⚙️</div>
+            <div class="br-card-title">Operational Automation</div>
+            <div class="br-card-desc">Eliminate manual workflows — CRM automation, AI chatbots, and intelligent business processes.</div>
+          </div>
+        </div>
+        <div class="br-nav">
+          <button class="br-next" id="br-next-1" disabled onclick="brNext(1)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Scale -->
+      <div class="br-panel" id="br-p2">
+        <div class="br-question">What's your current business stage?</div>
+        <div class="br-hint">This helps us calibrate the right solution and investment level.</div>
+        <div class="br-cards">
+          <div class="br-card" onclick="brSelect(this,'scale')">
+            <div class="br-card-ico">💡</div>
+            <div class="br-card-title">Pre-Revenue / Idea Stage</div>
+            <div class="br-card-desc">Just getting started — let's build the foundation right from day one.</div>
+          </div>
+          <div class="br-card" onclick="brSelect(this,'scale')">
+            <div class="br-card-ico">📈</div>
+            <div class="br-card-title">Growing Business</div>
+            <div class="br-card-desc">You're operational and looking to systematize, automate, and scale faster.</div>
+          </div>
+          <div class="br-card" onclick="brSelect(this,'scale')">
+            <div class="br-card-ico">🏢</div>
+            <div class="br-card-title">Established Enterprise</div>
+            <div class="br-card-desc">You need elite-level AI integration and strategic orchestration across existing systems.</div>
+          </div>
+        </div>
+        <div class="br-nav">
+          <button class="br-back" onclick="brBack(2)">← Back</button>
+          <button class="br-next" id="br-next-2" disabled onclick="brNext(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Connect -->
+      <div class="br-panel" id="br-p3">
+        <div class="br-final">
+          <div class="br-final-ico">✦</div>
+          <div class="br-final-title">Your Concierge is Ready</div>
+          <div class="br-final-sub">Based on your briefing, our orchestration team has been prepared to discuss your specific requirements. One message is all it takes.</div>
+          <div class="br-summary" id="br-summary-tags"></div>
+          <a href="#" id="br-wa-link" target="_blank" class="as-wa-btn" style="max-width:320px;margin:0 auto;font-size:15px;padding:16px 24px;">
+            <span>💬</span> Start WhatsApp Briefing
+          </a>
+          <p style="font-size:12px;color:var(--text-m);margin-top:18px;">⚡ Our team responds within 5 minutes during business hours</p>
+        </div>
+        <div class="br-nav" style="margin-top:20px;">
+          <button class="br-back" onclick="brBack(3)">← Start Over</button>
+        </div>
       </div>
     </div>
   </div>
@@ -607,11 +966,319 @@ footer{background:#040410;border-top:1px solid var(--bdr);padding:64px 52px 40px
   </div>
 </footer>
 
-<!-- FLOATING WA -->
-<div class="wa-float">
-  <div class="wa-pill">⚡ We reply within 5 minutes</div>
-  <a href="https://wa.me/60104290595?text=Hi%20I%20want%20to%20submit%20my%20requirements%20to%20The%20Complete%20Aura" target="_blank" class="wa-btn" title="Chat on WhatsApp">💬</a>
+<!-- AURA ASSISTANT CHATBOT v3 — with file upload + email + sheets -->
+<div id="aura-assistant" style="position:fixed;bottom:28px;right:28px;z-index:10000;display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-family:'Outfit',sans-serif;">
+
+  <!-- Chat Window -->
+  <div id="aa-window" style="display:none;width:345px;background:#09091f;border:1px solid rgba(139,92,246,0.32);border-radius:18px;overflow:hidden;box-shadow:0 0 60px rgba(139,92,246,0.2),0 32px 60px rgba(0,0,0,0.6);flex-direction:column;">
+
+    <!-- Header -->
+    <div style="background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.07);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+      <div style="display:flex;align-items:center;gap:9px;">
+        <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;flex-shrink:0;">✦</div>
+        <div>
+          <div style="font-weight:700;font-size:13px;color:#eef0ff;">Aura Assistant</div>
+          <div style="font-size:10px;color:#4ade80;display:flex;align-items:center;gap:4px;font-weight:600;margin-top:2px;"><span id="aa-sdot" style="width:5px;height:5px;border-radius:50%;background:#4ade80;display:inline-block;"></span>Online now</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(238,240,255,0.22);">The Complete Aura</span>
+        <button onclick="toggleAA()" style="background:transparent;border:none;cursor:pointer;color:rgba(238,240,255,0.4);font-size:20px;line-height:1;padding:0;">×</button>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="aa-msgs" style="height:300px;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:10px;scrollbar-width:none;flex-shrink:0;"></div>
+
+    <!-- File Upload Zone (hidden until file step) -->
+    <div id="aa-upload-zone" style="display:none;margin:0 12px 10px;border:1px dashed rgba(139,92,246,0.4);border-radius:10px;padding:14px;text-align:center;cursor:pointer;background:rgba(139,92,246,0.05);transition:all 0.3s;" onclick="document.getElementById('aa-file-inp').click()" ondragover="event.preventDefault();this.style.background='rgba(139,92,246,0.12)'" ondragleave="this.style.background='rgba(139,92,246,0.05)'" ondrop="aaHandleDrop(event)">
+      <input type="file" id="aa-file-inp" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.txt" style="display:none;" onchange="aaHandleFiles(this.files)">
+      <div style="font-size:22px;margin-bottom:6px;">📎</div>
+      <div style="font-size:12px;font-weight:700;color:#a78bfa;margin-bottom:3px;">Drop files here or tap to browse</div>
+      <div style="font-size:11px;color:rgba(238,240,255,0.35);">PDF, Word, Excel, Images — max 10MB each</div>
+      <div id="aa-file-list" style="margin-top:10px;display:flex;flex-direction:column;gap:5px;"></div>
+    </div>
+
+    <!-- Input Area -->
+    <div id="aa-input-area" style="padding:11px 12px 13px;border-top:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.18);flex-shrink:0;">
+      <div id="aa-input-wrap" style="display:flex;align-items:center;gap:7px;background:rgba(255,255,255,0.04);border:1px solid rgba(139,92,246,0.22);border-radius:9px;padding:6px 7px 6px 11px;">
+        <input id="aa-inp" placeholder="Aura is thinking…" disabled style="flex:1;background:transparent;border:none;outline:none;color:#eef0ff;font-size:12.5px;font-family:'Outfit',sans-serif;">
+        <button id="aa-sbtn" onclick="aaSend()" disabled style="width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <div id="aa-prog" style="display:flex;align-items:center;justify-content:center;gap:5px;margin-top:8px;"></div>
+    </div>
+  </div>
+
+  <!-- Notif Pill -->
+  <div id="aa-notif" style="display:none;background:rgba(9,9,31,0.96);border:1px solid rgba(139,92,246,0.35);border-radius:100px;padding:8px 16px;font-size:12px;font-weight:700;color:#a78bfa;align-items:center;gap:8px;white-space:nowrap;">
+    <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;"></span>
+    Your assistant is ready
+  </div>
+
+  <!-- Trigger Button -->
+  <button onclick="toggleAA()" id="aa-trigger" style="width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;box-shadow:0 4px 28px rgba(139,92,246,0.4);transition:all 0.3s;position:relative;flex-shrink:0;" aria-label="Open Aura Assistant">
+    <div style="position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(139,92,246,0.6);animation:aapulse 2.5s ease-out infinite;pointer-events:none;"></div>
+    <span id="aa-notif-dot" style="position:absolute;top:-3px;right:-3px;width:16px;height:16px;border-radius:50%;background:#ef4444;border:2px solid #09091f;font-size:9px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;">1</span>
+    ✦
+  </button>
 </div>
+
+<style>
+@keyframes aapulse{0%{opacity:0.7;transform:scale(1);}100%{opacity:0;transform:scale(1.6);}}
+@keyframes aablink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+#aa-sdot{animation:aablink 1.8s ease-in-out infinite;}
+.aa-opt{padding:7px 13px;border-radius:100px;border:1px solid rgba(139,92,246,0.38);background:rgba(139,92,246,0.09);color:#a78bfa;font-size:12px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;white-space:nowrap;}
+.aa-opt:hover{background:rgba(139,92,246,0.22);border-color:rgba(139,92,246,0.65);}
+.aa-opt.aa-ret{border-color:rgba(34,211,238,0.4);background:rgba(34,211,238,0.08);color:#67e8f9;}
+.aa-opt.aa-ret:hover{background:rgba(34,211,238,0.2);}
+.aa-opt.aa-skip{border-color:rgba(255,255,255,0.12);background:transparent;color:rgba(238,240,255,0.4);font-size:11px;}
+.aa-opt.aa-skip:hover{background:rgba(255,255,255,0.05);color:rgba(238,240,255,0.65);}
+#aa-inp::placeholder{color:rgba(238,240,255,0.28);}
+#aa-inp:focus{outline:none;}
+#aa-msgs::-webkit-scrollbar{display:none;}
+.aa-file-chip{display:flex;align-items:center;justify-content:space-between;background:rgba(99,102,241,0.12);border:1px solid rgba(139,92,246,0.25);border-radius:7px;padding:6px 10px;font-size:11px;color:rgba(238,240,255,0.75);}
+.aa-file-chip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:220px;}
+.aa-file-rm{background:transparent;border:none;cursor:pointer;color:rgba(238,240,255,0.4);font-size:15px;padding:0 0 0 8px;flex-shrink:0;}
+.aa-upload-done-btn{width:100%;padding:11px;border-radius:9px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;color:#fff;margin-top:10px;transition:all 0.3s;}
+.aa-upload-done-btn:hover{opacity:0.88;}
+</style>
+
+<script>
+(function(){
+  const WEBHOOK='https://formspree.io/f/mzdopbzn';
+  const INDUSTRIES=['E-commerce','Fintech','F&B / Restaurant','Healthcare','Education','Real Estate','Other'];
+  const BOTTLENECKS=['Too much manual work','No CRM / system','Need more leads','Slow team comms','No automation','Other'];
+  const STEPS=[
+    {id:'name',type:'text',ph:'Your full name…',validate:v=>v.trim().length>=2},
+    {id:'industry',type:'options',opts:INDUSTRIES},
+    {id:'bottleneck',type:'options',opts:BOTTLENECKS},
+    {id:'requirements',type:'textarea',ph:'Describe your requirements…',validate:v=>v.trim().length>=10},
+    {id:'email',type:'text',ph:'your@email.com',validate:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)},
+    {id:'files',type:'upload'}
+  ];
+
+  let S={mode:null,step:0,answers:{},files:[],typing:false,twt:null,open:false,started:false};
+
+  const win=document.getElementById('aa-window');
+  const msgsEl=document.getElementById('aa-msgs');
+  const inp=document.getElementById('aa-inp');
+  const sbtn=document.getElementById('aa-sbtn');
+  const prog=document.getElementById('aa-prog');
+  const notifEl=document.getElementById('aa-notif');
+  const notifDot=document.getElementById('aa-notif-dot');
+  const uploadZone=document.getElementById('aa-upload-zone');
+  const fileList=document.getElementById('aa-file-list');
+
+  function scroll(){msgsEl.scrollTop=msgsEl.scrollHeight;}
+
+  function bot(text,cb){
+    const r=document.createElement('div');r.style.cssText='display:flex;align-items:flex-start;gap:7px;';
+    const av=document.createElement('div');av.style.cssText='width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex-shrink:0;margin-top:1px;';av.textContent='✦';
+    const b=document.createElement('div');b.style.cssText='background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);border-radius:3px 11px 11px 11px;padding:9px 11px;font-size:12.5px;color:rgba(238,240,255,0.82);line-height:1.65;max-width:calc(100% - 33px);white-space:pre-line;';
+    r.appendChild(av);r.appendChild(b);msgsEl.appendChild(r);scroll();
+    S.typing=true;setInp(false);let i=0;clearInterval(S.twt);
+    S.twt=setInterval(()=>{i++;b.innerHTML=text.slice(0,i).replace(/\n/g,'<br>')+'<span style="display:inline-block;color:#a78bfa;animation:aablink 0.8s step-end infinite;margin-left:1px;">▌</span>';scroll();
+      if(i>=text.length){clearInterval(S.twt);b.innerHTML=text.replace(/\n/g,'<br>');S.typing=false;cb&&cb();}
+    },16);
+  }
+
+  function user(text){
+    const r=document.createElement('div');r.style.cssText='display:flex;justify-content:flex-end;';
+    const b=document.createElement('div');b.style.cssText='background:rgba(99,102,241,0.22);border:1px solid rgba(139,92,246,0.3);border-radius:11px 3px 11px 11px;padding:9px 11px;font-size:12.5px;color:#eef0ff;line-height:1.55;max-width:78%;';
+    b.textContent=text;r.appendChild(b);msgsEl.appendChild(r);scroll();
+  }
+
+  function opts(list,isRet,cb){
+    const wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-top:4px;margin-left:31px;';
+    list.forEach(o=>{
+      const btn=document.createElement('button');btn.className='aa-opt'+(isRet?' aa-ret':'');btn.textContent=o;
+      btn.onclick=()=>{wrap.querySelectorAll('.aa-opt').forEach(b=>b.style.opacity='0.4');btn.style.background='rgba(139,92,246,0.3)';btn.style.borderColor='#8b5cf6';btn.style.color='#eef0ff';btn.style.opacity='1';setTimeout(()=>{wrap.remove();cb(o);},220);};
+      wrap.appendChild(btn);
+    });
+    msgsEl.appendChild(wrap);scroll();
+  }
+
+  function setInp(active,ph,isTextarea){
+    inp.disabled=!active;sbtn.disabled=!active;
+    inp.placeholder=active?(ph||'Type here…'):'Aura is thinking…';
+    if(active)inp.focus();
+  }
+
+  function buildProg(total,cur){
+    prog.innerHTML='';
+    for(let i=0;i<total;i++){
+      const d=document.createElement('div');
+      d.style.cssText='width:5px;height:5px;border-radius:50%;transition:all 0.35s;'+(i===cur?'background:#8b5cf6;transform:scale(1.4);':i<cur?'background:#6366f1;':'background:rgba(255,255,255,0.1);');
+      prog.appendChild(d);
+    }
+  }
+
+  // ── File handling ──
+  window.aaHandleFiles=function(fileArr){
+    Array.from(fileArr).forEach(f=>{
+      if(f.size>10*1024*1024){alert(f.name+' exceeds 10MB limit.');return;}
+      if(S.files.find(x=>x.name===f.name))return;
+      S.files.push(f);renderFileChip(f);
+    });
+  };
+  window.aaHandleDrop=function(e){e.preventDefault();aaHandleFiles(e.dataTransfer.files);};
+
+  function renderFileChip(f){
+    const chip=document.createElement('div');chip.className='aa-file-chip';chip.dataset.name=f.name;
+    chip.innerHTML=`<span>📄 ${f.name} (${(f.size/1024).toFixed(0)}KB)</span><button class="aa-file-rm" onclick="aaRemoveFile('${f.name}')">×</button>`;
+    fileList.appendChild(chip);
+  }
+  window.aaRemoveFile=function(name){
+    S.files=S.files.filter(f=>f.name!==name);
+    const chip=fileList.querySelector(`[data-name="${name}"]`);
+    if(chip)chip.remove();
+  };
+
+  function showUploadStep(){
+    buildProg(STEPS.length,S.step);
+    uploadZone.style.display='block';
+    document.getElementById('aa-input-area').style.display='none';
+
+    // Add done button
+    const doneBtn=document.createElement('button');
+    doneBtn.className='aa-upload-done-btn';
+    doneBtn.id='aa-upload-done';
+    doneBtn.textContent=S.files.length>0?'Submit with documents ✦':'Skip & Submit ✦';
+    doneBtn.onclick=submitAll;
+    uploadZone.appendChild(doneBtn);
+
+    // Update button text as files are added
+    const observer=new MutationObserver(()=>{
+      const btn=document.getElementById('aa-upload-done');
+      if(btn)btn.textContent=S.files.length>0?`Submit with ${S.files.length} document${S.files.length>1?'s':''} ✦`:'Skip & Submit ✦';
+    });
+    observer.observe(fileList,{childList:true});
+  }
+
+  async function submitAll(){
+    const doneBtn=document.getElementById('aa-upload-done');
+    if(doneBtn){doneBtn.textContent='Sending…';doneBtn.disabled=true;}
+    uploadZone.style.display='none';
+
+    const fd=new FormData();
+    fd.append('_subject','✦ New Aura Brief: '+S.answers.name+' · '+S.answers.industry);
+    fd.append('Name', S.answers.name||'');
+    fd.append('Industry', S.answers.industry||'');
+    fd.append('Bottleneck', S.answers.bottleneck||'');
+    fd.append('Requirements', S.answers.requirements||'');
+    fd.append('Email', S.answers.email||'');
+    fd.append('Entry_Page', location.pathname);
+    fd.append('Submitted_At', new Date().toLocaleString('en-MY',{timeZone:'Asia/Kuala_Lumpur'}));
+    fd.append('Referrer', document.referrer||'Direct');
+    fd.append('Returning', 'No');
+    S.files.forEach(f=>fd.append('attachment',f,f.name));
+
+    try{
+      await fetch(WEBHOOK,{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+    }catch(e){}
+    showSuccess(S.answers.name||'there',false);
+  }
+
+  async function submitReturning(){
+    const fd=new FormData();
+    fd.append('_subject','✦ Returning Client: '+S.answers.returningEmail);
+    fd.append('Returning','Yes');
+    fd.append('Returning_Email',S.answers.returningEmail||'');
+    fd.append('Entry_Page',location.pathname);
+    fd.append('Submitted_At',new Date().toLocaleString('en-MY',{timeZone:'Asia/Kuala_Lumpur'}));
+    try{await fetch(WEBHOOK,{method:'POST',body:fd,headers:{'Accept':'application/json'}});}catch(e){}
+    showSuccess(S.answers.returningEmail,'returning');
+  }
+
+  function showSuccess(nameOrEmail,type){
+    msgsEl.innerHTML='';
+    document.getElementById('aa-input-area').style.display='none';
+    uploadZone.style.display='none';
+    const d=document.createElement('div');d.style.cssText='text-align:center;padding:24px 14px 18px;display:flex;flex-direction:column;align-items:center;gap:9px;';
+    if(type==='returning'){
+      const ini=nameOrEmail.slice(0,2).toUpperCase();
+      d.innerHTML=`<div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#0891b2,#22d3ee);display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;font-weight:800;">${ini}</div><div style="font-weight:800;font-size:17px;color:#eef0ff;">Welcome back</div><div style="font-size:12px;color:rgba(238,240,255,0.6);line-height:1.65;max-width:240px;">We've found your profile. A specialist will reach out to ${nameOrEmail} shortly.</div><div style="display:inline-flex;align-items:center;gap:5px;padding:5px 13px;border-radius:100px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.28);font-size:11px;font-weight:700;color:#4ade80;">⚡ Priority client</div>`;
+    } else {
+      const first=(nameOrEmail||'there').split(' ')[0];
+      const fileMsg=S.files.length>0?`<div style="font-size:11px;color:rgba(167,139,250,0.8);margin-top:2px;">${S.files.length} document${S.files.length>1?'s':''} received</div>`:'';
+      d.innerHTML=`<div style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;">✦</div><div style="font-weight:800;font-size:17px;color:#eef0ff;">Brief received</div><div style="font-size:12px;color:rgba(238,240,255,0.6);line-height:1.65;max-width:240px;">Thank you, ${first}. Your brief and documents have been sent to our team. We'll reach out shortly.</div>${fileMsg}<div style="display:inline-flex;align-items:center;gap:5px;padding:5px 13px;border-radius:100px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.28);font-size:11px;font-weight:700;color:#4ade80;">⚡ Reply within 60 min</div>`;
+    }
+    msgsEl.appendChild(d);scroll();
+  }
+
+  // ── Step runner ──
+  const BOT_MSG={
+    name:'Welcome! I\'m the Aura Assistant.\n\nMay I have your name?',
+    industry:()=>`Nice to meet you, ${S.answers.name.split(' ')[0]}!\n\nWhich industry are you in?`,
+    bottleneck:'What is your biggest business challenge right now?',
+    requirements:'Please describe your requirements in detail.\n\nWhat exactly do you need us to build or solve?',
+    email:'Almost there — what email should we send your brief to?',
+    files:'Finally, do you have any documents to share?\n\nYou can upload PDFs, Word docs, Excel files or images. Or skip if none.'
+  };
+
+  function runStep(){
+    const s=STEPS[S.step];
+    buildProg(STEPS.length,S.step);
+    const txt=typeof BOT_MSG[s.id]==='function'?BOT_MSG[s.id]():BOT_MSG[s.id];
+
+    if(s.type==='upload'){
+      bot(txt,()=>{showUploadStep();});
+      return;
+    }
+
+    bot(txt,()=>{
+      if(s.type==='options'){
+        opts(s.opts,false,val=>{user(val);S.answers[s.id]=val;S.step++;setTimeout(runStep,250);});
+      } else {
+        setInp(true,s.ph);
+      }
+    });
+  }
+
+  function aaSend(){
+    if(S.typing)return;
+    const val=inp.value.trim();if(!val)return;
+    const isRet=S.mode==='returning';
+    if(!isRet){
+      const s=STEPS[S.step];
+      if(s&&!s.validate(val)){inp.style.outline='1px solid #f87171';setTimeout(()=>inp.style.outline='',1500);return;}
+    } else {
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)){inp.style.outline='1px solid #f87171';setTimeout(()=>inp.style.outline='',1500);return;}
+    }
+    inp.style.outline='';user(val);inp.value='';setInp(false);
+    if(isRet){S.answers.returningEmail=val;setTimeout(submitReturning,300);return;}
+    S.answers[STEPS[S.step].id]=val;
+    S.step++;
+    setTimeout(runStep,250);
+  }
+
+  function startWelcome(){
+    S.started=true;
+    bot('Welcome to The Complete Aura.\n\nHave we spoken before?',()=>{
+      opts(['First time here','I\'ve spoken to Aura before'],true,val=>{
+        user(val);
+        if(val==='First time here'){S.mode='new';setTimeout(runStep,250);}
+        else{S.mode='returning';setTimeout(()=>bot('Welcome back! Please enter the email you used before.',()=>setInp(true,'your@email.com')),250);}
+      });
+    });
+  }
+
+  window.toggleAA=function(){
+    S.open=!S.open;
+    win.style.display=S.open?'flex':'none';
+    notifEl.style.display='none';
+    notifDot.style.display='none';
+    if(S.open&&!S.started)startWelcome();
+    if(S.open)setTimeout(()=>scroll(),50);
+  };
+
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();aaSend();}});
+  setTimeout(()=>{if(!S.open)notifEl.style.display='flex';},4000);
+  setTimeout(()=>{if(!S.open)window.toggleAA();},10000);
+})();
+</script>
 
 <script>
   /* ── Nav scroll ── */
@@ -660,7 +1327,78 @@ footer{background:#040410;border-top:1px solid var(--bdr);padding:64px 52px 40px
     }
   });
 
-  /* ── Scroll reveal ── */
+  /* ── Briefing Room ── */
+  let brSelections = { vision: null, scale: null };
+  function brSelect(card, group) {
+    document.querySelectorAll(`#br-p${group === 'vision' ? 1 : 2} .br-card`).forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    brSelections[group] = card.querySelector('.br-card-title').textContent;
+    const nextBtn = group === 'vision' ? document.getElementById('br-next-1') : document.getElementById('br-next-2');
+    if (nextBtn) nextBtn.disabled = false;
+  }
+  function brNext(step) {
+    document.getElementById('br-p' + step).classList.remove('active');
+    const nextStep = step + 1;
+    document.getElementById('br-p' + nextStep).classList.add('active');
+    document.getElementById('br-dot-' + step).classList.remove('active');
+    document.getElementById('br-dot-' + step).classList.add('done');
+    document.getElementById('br-line-' + step).classList.add('done');
+    document.getElementById('br-dot-' + nextStep).classList.add('active');
+    if (nextStep === 3) buildBrFinal();
+  }
+  function brBack(step) {
+    if (step === 3) { brReset(); return; }
+    document.getElementById('br-p' + step).classList.remove('active');
+    document.getElementById('br-p' + (step - 1)).classList.add('active');
+    document.getElementById('br-dot-' + step).classList.remove('active');
+    document.getElementById('br-dot-' + (step - 1)).classList.remove('done');
+    document.getElementById('br-dot-' + (step - 1)).classList.add('active');
+    document.getElementById('br-line-' + (step - 1)).classList.remove('done');
+  }
+  function brReset() {
+    ['br-p1','br-p2','br-p3'].forEach((id,i) => {
+      const el = document.getElementById(id);
+      el.classList.toggle('active', i === 0);
+    });
+    [1,2,3].forEach(i => {
+      const dot = document.getElementById('br-dot-' + i);
+      dot.classList.remove('active','done');
+      if (i === 1) dot.classList.add('active');
+    });
+    [1,2].forEach(i => document.getElementById('br-line-' + i).classList.remove('done'));
+    document.querySelectorAll('.br-card').forEach(c => c.classList.remove('selected'));
+    ['br-next-1','br-next-2'].forEach(id => { const b = document.getElementById(id); if(b) b.disabled = true; });
+    brSelections = { vision: null, scale: null };
+  }
+  function buildBrFinal() {
+    const tags = document.getElementById('br-summary-tags');
+    tags.innerHTML = '';
+    [brSelections.vision, brSelections.scale].filter(Boolean).forEach(t => {
+      const tag = document.createElement('span');
+      tag.className = 'br-tag';
+      tag.textContent = t;
+      tags.appendChild(tag);
+    });
+    const msg = encodeURIComponent(`Hi! I just completed the Briefing Room on your website. My vision: ${brSelections.vision || 'Not specified'}. My stage: ${brSelections.scale || 'Not specified'}. I'd like to discuss my requirements with The Complete Aura.`);
+    document.getElementById('br-wa-link').href = `https://wa.me/60104290595?text=${msg}`;
+  }
+
+  /* ── Market Intelligence Report Bars ── */
+  const reportObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          document.getElementById('bar-you').style.width = '82%';
+          document.getElementById('score-you').textContent = '82';
+          document.getElementById('bar-avg').style.width = '54%';
+          document.getElementById('score-avg').textContent = '54';
+        }, 200);
+        reportObs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  const reportEl = document.getElementById('intel-report');
+  if (reportEl) reportObs.observe(reportEl);
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
