@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Complete Aura — Instagram Reel Storyboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#07071a;font-family:'Outfit',sans-serif;color:#eef0ff;padding:40px 20px;min-height:100vh;}
+
+.page-header{text-align:center;margin-bottom:48px;}
+.page-header h1{font-size:28px;font-weight:800;letter-spacing:-0.02em;margin-bottom:8px;}
+.page-header p{font-size:14px;color:rgba(238,240,255,0.5);max-width:500px;margin:0 auto;line-height:1.6;}
+
+.reel-grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:center;max-width:1400px;margin:0 auto;}
+
+.scene-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;}
+
+/* 9:16 phone frame */
+.phone{width:270px;height:480px;border-radius:24px;overflow:hidden;position:relative;border:2px solid rgba(139,92,246,0.3);box-shadow:0 0 40px rgba(139,92,246,0.12),0 20px 40px rgba(0,0,0,0.5);flex-shrink:0;cursor:pointer;}
+.phone:hover{border-color:rgba(139,92,246,0.6);box-shadow:0 0 60px rgba(139,92,246,0.2),0 20px 40px rgba(0,0,0,0.5);}
+
+.scene{width:100%;height:100%;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px;overflow:hidden;}
+
+/* Scene backgrounds */
+.s-hook{background:linear-gradient(135deg,#07071a,#0e0e28);} 
+.s-hook::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(139,92,246,0.25),transparent 70%);border-radius:50%;}
+.s-hook::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(99,102,241,0.2),transparent 70%);border-radius:50%;}
+
+.s-problem{background:linear-gradient(180deg,#0a0a1e,#12122e);}
+.s-problem::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:30px 30px;}
+
+.s-reveal{background:linear-gradient(135deg,#0e0e28,#1a0a30);}
+.s-reveal::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(139,92,246,0.15),transparent 70%);}
+
+.s-flow{background:linear-gradient(180deg,#07071a,#0b0b22);}
+
+.s-chat{background:linear-gradient(135deg,#07071a,#10102a);}
+.s-chat::before{content:'';position:absolute;bottom:0;right:0;width:240px;height:240px;background:radial-gradient(circle,rgba(99,102,241,0.12),transparent 70%);border-radius:50%;}
+
+.s-intel{background:linear-gradient(180deg,#08081c,#0e0e28);}
+
+.s-trust{background:linear-gradient(135deg,#0a0a1e,#14082a);}
+.s-trust::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(139,92,246,0.1),transparent 60%);}
+
+.s-cta{background:linear-gradient(135deg,#0e0e28,#1a0a30);position:relative;}
+.s-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(139,92,246,0.2),rgba(99,102,241,0.1),transparent 70%);border-radius:50%;animation:cta-pulse 3s ease-in-out infinite;}
+@keyframes cta-pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1;}50%{transform:translate(-50%,-50%) scale(1.1);opacity:0.7;}}
+
+/* Text styles */
+.s-tag{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#a78bfa;padding:5px 12px;border-radius:100px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);margin-bottom:16px;position:relative;z-index:1;}
+.s-big{font-family:'Playfair Display',serif;font-weight:900;font-size:28px;line-height:1.15;position:relative;z-index:1;margin-bottom:12px;letter-spacing:-0.02em;}
+.s-med{font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;line-height:1.25;position:relative;z-index:1;margin-bottom:10px;}
+.s-body{font-size:12px;color:rgba(238,240,255,0.6);line-height:1.65;position:relative;z-index:1;max-width:220px;}
+.s-accent{color:#a78bfa;}
+.s-cyan{color:#22d3ee;}
+.s-green{color:#4ade80;}
+.s-glow{text-shadow:0 0 20px rgba(139,92,246,0.4);}
+
+/* Icon badge */
+.s-icon{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;position:relative;z-index:1;box-shadow:0 0 24px rgba(139,92,246,0.4);}
+
+/* Miniature flow stages */
+.mini-flow{display:flex;gap:4px;align-items:center;margin-top:14px;position:relative;z-index:1;}
+.mini-dot{width:28px;height:28px;border-radius:50%;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.35);display:flex;align-items:center;justify-content:center;font-size:9px;color:#a78bfa;}
+.mini-line{width:12px;height:1px;background:rgba(139,92,246,0.3);}
+
+/* Mini chat mockup */
+.mini-chat{width:90%;background:rgba(255,255,255,0.04);border:1px solid rgba(139,92,246,0.25);border-radius:12px;padding:10px;margin-top:14px;position:relative;z-index:1;text-align:left;}
+.mini-chat-header{display:flex;align-items:center;gap:6px;margin-bottom:8px;}
+.mini-chat-av{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;}
+.mini-chat-name{font-size:9px;font-weight:700;color:#eef0ff;}
+.mini-chat-bub{background:rgba(255,255,255,0.06);border-radius:3px 8px 8px 8px;padding:6px 8px;font-size:9px;color:rgba(238,240,255,0.6);line-height:1.5;margin-bottom:5px;}
+.mini-chat-opt{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px;}
+.mini-chat-pill{padding:3px 8px;border-radius:100px;border:1px solid rgba(139,92,246,0.3);background:rgba(139,92,246,0.08);font-size:8px;color:#a78bfa;font-weight:700;}
+
+/* Mini report */
+.mini-report{width:90%;background:rgba(255,255,255,0.03);border:1px solid rgba(139,92,246,0.2);border-radius:10px;overflow:hidden;margin-top:14px;position:relative;z-index:1;text-align:left;}
+.mini-report-head{background:rgba(99,102,241,0.12);padding:7px 10px;display:flex;align-items:center;gap:6px;}
+.mini-report-dot{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;}
+.mini-report-title{font-size:8px;font-weight:700;color:#eef0ff;letter-spacing:0.02em;}
+.mini-report-body{padding:8px 10px;}
+.mini-bar-label{font-size:8px;color:rgba(238,240,255,0.4);margin-bottom:3px;}
+.mini-bar-track{height:4px;border-radius:2px;background:rgba(255,255,255,0.06);margin-bottom:8px;}
+.mini-bar-fill{height:100%;border-radius:2px;}
+
+/* Trust pills */
+.trust-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;position:relative;z-index:1;justify-content:center;}
+.trust-pill{padding:5px 10px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);font-size:9px;font-weight:700;color:rgba(238,240,255,0.6);}
+
+/* CTA button mockup */
+.cta-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#8b5cf6);font-family:'Outfit',sans-serif;font-weight:800;font-size:13px;color:#fff;margin-top:16px;position:relative;z-index:1;box-shadow:0 0 30px rgba(139,92,246,0.4);letter-spacing:0.02em;}
+
+/* Upload zone mockup */
+.mini-upload{width:85%;border:1px dashed rgba(139,92,246,0.4);border-radius:8px;padding:10px;text-align:center;margin-top:10px;position:relative;z-index:1;background:rgba(139,92,246,0.04);}
+.mini-upload-ico{font-size:16px;margin-bottom:4px;}
+.mini-upload-txt{font-size:9px;color:#a78bfa;font-weight:700;}
+.mini-upload-sub{font-size:8px;color:rgba(238,240,255,0.3);}
+
+/* Scene label & timing */
+.scene-label{font-size:12px;font-weight:700;color:rgba(238,240,255,0.6);letter-spacing:0.06em;}
+.scene-timing{font-size:10px;color:rgba(238,240,255,0.3);margin-top:2px;}
+.scene-voiceover{font-size:11px;color:rgba(238,240,255,0.4);line-height:1.55;max-width:270px;text-align:center;font-style:italic;margin-top:6px;}
+
+/* Caption section */
+.caption-section{max-width:700px;margin:64px auto 0;padding:32px;background:rgba(255,255,255,0.03);border:1px solid rgba(139,92,246,0.2);border-radius:16px;}
+.caption-title{font-weight:800;font-size:18px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.caption-body{font-size:13px;color:rgba(238,240,255,0.7);line-height:1.8;white-space:pre-line;}
+.caption-tags{margin-top:16px;font-size:12px;color:#6366f1;line-height:1.8;word-break:break-all;}
+
+.tips-section{max-width:700px;margin:32px auto 0;padding:32px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;}
+.tips-title{font-weight:800;font-size:16px;margin-bottom:14px;}
+.tip{font-size:12px;color:rgba(238,240,255,0.6);line-height:1.7;margin-bottom:10px;padding-left:20px;position:relative;}
+.tip::before{content:'✦';position:absolute;left:0;color:#a78bfa;}
+
+@media(max-width:600px){
+  .reel-grid{gap:24px;}
+  .phone{width:220px;height:391px;}
+  .s-big{font-size:22px;}
+  .s-med{font-size:17px;}
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>✦ Instagram Reel Storyboard</h1>
+  <p>8 scenes · 30 seconds · 9:16 vertical format<br>Screen record each frame or use as a visual reference for CapCut / Canva</p>
+</div>
+
+<div class="reel-grid">
+
+  <!-- SCENE 1: HOOK -->
+  <div class="scene-wrap">
+    <div class="phone">
+      <div class="scene s-hook">
+        <div class="s-tag">stop scrolling</div>
+        <div class="s-big">Your business<br>needs <span class="s-accent s-glow">AI</span>.<br>Not another<br>freelancer.</div>
+        <div class="s-body">And we just made it ridiculously easy.</div>
+      </div>
+    </div>
+    <div class="scene-label">Scene 1 — Hook</div>
+    <div class="scene-timing">0:00 – 0:04</div>
+    <div class="scene-voiceover">"Your business needs AI. Not another freelancer."</div>
+  </div>
+
+  <!-- SCENE 2: PROBLEM -->
+  <div class="scene-wrap">
+    <div class="phone">
+      <div class="scene s-problem">
+        <div class="s-icon">😤</div>
+        <div class="s-med">Tired of<br><span class="s-accent">3 vendors</span><br>for 1 project?</div>
+        <div class="s-body">One for design. One for dev. One for AI. None of them talk to each other.</div>
+      </div>
+    </div>
+    <div class="scene-label">Scene 2 — Problem</div>
+    <div class="scene-timing">0:04 – 0:08</div>
+    <div class="scene-voiceover">"Tired of juggling 3 vendors for 1 project?"</div>
+  </div>
+
+  <!-- SCENE 3: REVEAL -->
+  <div class="scene-wrap">
+    <div class="phone">
+      <div class="scene s-reveal">
+        <div class="s-icon">✦</div>
+        <div class="s-big"><span class="s-accent s-glow">The Complete<br>Aura</span></div>
+        <div class="s-med" style="font-size:14px;font-weight:600;margin-top:4px;">AI Orchestration Platform<br>& Digital Assistant</div>
+        <div class="s-body" style="margin-top:10px;">One team. One system. Everything you need — designed, built, and automated.</div>
+      </div>
+    </div>
+    <div class="scene-label">Scene 3 — Brand Reveal</div>
+    <div class="scene-timing">0:08 – 0:12</div>
+    <div class="scene-voiceover">"Meet The Complete Aura. One team. One system. Everything."</div>
+  </div>
+
+  <!-- SCENE 4: AURA FLOW -->
+  <div class="scene-wrap">
+    <div class="phone">
+      <div class="scene s-flow">
+        <div class="s-tag">the aura flow</div>
+        <div class="s-med">From vision to<br><span class="s-accent">market dominance</span></div>
+        <div class="mini-flow">
+          <div class="mini-dot">🎯</div><div class="mini-line"></div>
+          <div class="mini-dot">⚙️</div><div class="mini-line"></div>
+          <div class="mini-dot">📊</div><div class="mini-line"></div>
+          <div class="mini-dot">🔧</div><div class="mini-line"></div>
+          <div class="mini-dot">🚀</div>
+        </div>
+        <div class="s-body" style="margin-top:14px;font-size:10px;">Strategy → Build → Intelligence → Automate → Scale</div>
+      </div>
+    </div>
+    <div class="scene-label">Scene 4 — Aura Flow</div>
+    <div class="scene-timing">0:12 – 0:16</div>
+    <div class="scene-voiceover">"5 stages. From strategic briefing to growth scaling."</div>
+  </div>
+
+  <!-- SCENE 5: AI CHATBOT -->
+  <div class="scene-wrap">
+    <div class="phone">
+      <div class="scene s-chat">
+        <div class="s-tag">new feature ✨</div>
+        <div class="s-med" style="font-size:16px;">AI-Powered<br><span class="s-accent">Intake Assistant</span></div>
+        <div class="mini-chat">
+          <div class="mini-chat-header">
+            <div class="mini-chat-av">✦</div>
+            <div class="mini-chat-name">Aura Assistant</div>
+          </div>
+          <div class="mini-chat-bub">Which industry are you in?</div>
+          <div class="mini-chat-opt">
+            <div class="mini-chat-pill">E-commerce</div>
+            <div class="mini-chat-pill">Fintech</div>
+            <div class="mini-chat-pill">Healthcare</div>
+          </div>
+        </div>
+        <div class="mini-upload">
+          <div class="mini-upload-ico">📎</div>
+          <div class="mini-upload-txt">Upload requirements</div>
+          <div class="mini-upload-sub">PDF, Word, Excel, Images</div>
+        </div>
+      </div>
+    </div>
+    <div class="scene-label">Scene 5 — Chatbot Demo</div>
+    <div class="scene-timing">0:16 – 0:20</div>
+    <div class="scene-voiceover">"Just tell our assistant what you need. Upload your docs. Done."</div>
+  </div>
+
+  <!-- SCENE 6: MARKET INTEL -->
+  <div class="scene-wrap">
+    <div class="phone">
+      <div class="scene s-intel">
+        <div class="s-tag">intelligence</div>
+        <div class="s-med" style="font-size:15px;">Market Intel<br><span class="s-accent">Reports</span></div>
+        <div class="mini-report">
+          <div class="mini-report-head">
+            <div class="mini-report-dot">✦</div>
+            <div class="mini-report-title">Competitor Analysis</div>
+          </div>
+          <div class="mini-report-body">
+            <div class="mini-bar-label">Your Brand — <span class="s-accent">82</span></div>
+            <div class="mini-bar-track"><div class="mini-bar-fill" style="width:82%;background:linear-gradient(90deg,#6366f1,#8b5cf6);"></div></div>
+            <div class="mini-bar-label">Market Avg — <span style="color:rgba(238,240,255,0.5);">54</span></div>
+            <div class="mini-bar-track"><div class="mini-bar-fill" style="width:54%;background:rgba(99,102,241,0.35);"></div></div>
+          </div>
+        </div>
+        <div class="s-body" style="margin-top:10px;font-size:10px;">Know your competitors before they know themselves.</div>
+      </div>
+    </div>
+    <div class="scene-label">Scene 6 — Intelligence</div>
+    <div class="scene-timing">0:20 – 0:24</div>
+    <div class="scene-voiceover">"Get competitor analysis and market gaps before anyone else."</div>
+  </div>
+
+  <!-- SCENE 7: TRUST -->
+  <div class="scene-wrap">
+    <div class="phone">
+      <div class="scene s-trust">
+        <div class="s-icon" style="font-size:18px;">🛡️</div>
+        <div class="s-med"><span class="s-green">100%</span> Delivery<br>Guarantee</div>
+        <div class="trust-row">
+          <div class="trust-pill">✦ Full refund policy</div>
+          <div class="trust-pill">⚡ 60 min response</div>
+          <div class="trust-pill">🔒 Zero tech debt</div>
+          <div class="trust-pill">📊 Data you own</div>
+        </div>
+      </div>
+    </div>
+    <div class="scene-label">Scene 7 — Trust</div>
+    <div class="scene-timing">0:24 – 0:27</div>
+    <div class="scene-voiceover">"Full delivery guarantee. Full refund if we don't deliver."</div>
+  </div>
+
+  <!-- SCENE 8: CTA -->
+  <div class="scene-wrap">
+    <div class="phone">
+      <div class="scene s-cta">
+        <div class="s-big" style="font-size:24px;">Ready to<br>build your<br><span class="s-accent s-glow">Aura</span>?</div>
+        <div class="s-body" style="margin-bottom:6px;">Visit the site. Talk to the assistant.<br>Upload your brief. We handle the rest.</div>
+        <div class="cta-btn">✦ thecompleteaura.com</div>
+        <div style="margin-top:14px;font-size:10px;color:#4ade80;font-weight:700;position:relative;z-index:1;">⚡ Link in bio</div>
+      </div>
+    </div>
+    <div class="scene-label">Scene 8 — CTA</div>
+    <div class="scene-timing">0:27 – 0:30</div>
+    <div class="scene-voiceover">"Visit the site. Talk to the assistant. We handle the rest."</div>
+  </div>
+
+</div>
+
+<!-- CAPTION & HASHTAGS -->
+<div class="caption-section">
+  <div class="caption-title">📝 Instagram Caption</div>
+  <div class="caption-body">Your business doesn't need another freelancer.
+It needs an AI-powered system that handles everything — from strategy to automation.
+
+Introducing the new features on The Complete Aura ✦
+
+🎯 AI Intake Assistant — tell us what you need, upload your docs, and our team gets your brief instantly
+📊 Market Intelligence Reports — competitor analysis, gap identification, strategic recommendations
+⚙️ End-to-end orchestration — no more juggling 3 vendors for 1 project
+🛡️ 100% delivery guarantee — full refund if we don't deliver
+
+The future of business isn't hiring more people.
+It's building smarter systems.
+
+🔗 Link in bio → thecompleteaura.com</div>
+  <div class="caption-tags">
+#ai #artificialintelligence #aiautomation #digitalmarketing #businessautomation #entrepreneurship #startup #smallbusiness #marketintelligence #automation #nocode #n8n #buildwithAI #ecommerce #fintech #malaysia #india #thecompleteaura #aitools #growthhacking #businessgrowth #founder #ceo #digitalbusiness #futureofwork #tech #innovation #aistartup
+  </div>
+</div>
+
+<!-- PRODUCTION TIPS -->
+<div class="tips-section">
+  <div class="tips-title">🎬 Production Tips</div>
+  <div class="tip">Record this as a screen recording of your actual website — scroll through each section</div>
+  <div class="tip">Use CapCut or Canva to overlay the text shown in each scene as animated text</div>
+  <div class="tip">Add a trending audio track — search "cinematic tech" or "dark luxury" on Instagram audio</div>
+  <div class="tip">Each scene transition should be a quick zoom-cut (0.1s) for that premium feel</div>
+  <div class="tip">Show the actual chatbot in action for Scene 5 — screen record yourself clicking through it</div>
+  <div class="tip">Post at 7 PM–9 PM IST or 9 PM–11 PM MYT for peak engagement</div>
+  <div class="tip">Add this to your Instagram bio: thecompleteaura.com</div>
+  <div class="tip">Cross-post to Reels, TikTok, YouTube Shorts, and LinkedIn simultaneously</div>
+</div>
+
+</body>
+</html>
